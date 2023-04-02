@@ -1,0 +1,2 @@
+class Copyright < ApplicationRecord
+end

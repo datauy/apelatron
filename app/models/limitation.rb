@@ -1,0 +1,2 @@
+class Limitation < ApplicationRecord
+end
