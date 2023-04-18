@@ -1,0 +1,6 @@
+if (<%= params['step'].present? %>  == true) {
+  jQuery('.step').hide();
+  jQuery('.mainButton').remove();
+  jQuery('#steps').append('<%= escape_javascript(render partial: "step-#{@step}", locals: {form: @form}) %>');
+  jQuery('#steps').append('<%= link_to "Siguiente", {:controller => :complaints, :action => :index, step: @step}, class: "mainButton", remote:true %>');
+}

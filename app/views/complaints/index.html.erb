@@ -1,0 +1,18 @@
+<% content_for(:html_title) { 'Apelatrón - Nueva apelación' } %>
+<% content_for(:header_title) { 'Nueva apelación' } %>
+<% content_for(:header_left) { '<' } %>
+<%= form_with model: @complaint do |form| %>
+  <% @form = form %>
+  <div id="steps">
+    <%= render partial: "step-1", locals: {form: form} %>
+  </div>
+  <%= link_to "Empezar con el proceso", {:controller => :complaints, :action => :index, step: 1}, class: "mainButton", remote:true %>
+<% end %>
+<script>
+  /*$('.btn-complain').click((e) => {
+    e.preventDefault();
+    $('.step').hide();
+    var step = parseInt(e.target.id.split('-')[1]) + 1;
+    $('.step-'+step).show();
+  });*/
+</script>

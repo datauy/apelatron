@@ -1,0 +1,66 @@
+<header>
+  <a href="/" class="logo"><%= content_for?(:header_left) ? yield(:html_left) : image_tag('logo.png') %></a>
+  <h1><%= content_for?(:header_title) ? yield(:header_title) : "Apelatrón" %></h1>
+  <div id="menu"></div>
+  <div class="menu-container">
+      <!-- Hamburger icon -->
+      <img class="hamb" src=<%= asset_path("Hamburger-menu.png") %> onclick="openNav()">
+      <!-- <label class="hamb" for="side-menu" onclick="openNav()">
+          <img class="hamb" src=<%= asset_path("Hamburger-menu.png") %> onclick="openNav()">
+          <span class="hamb-line"></span></label> -->
+  </div>
+  <div id="myNav" class="nav">
+    <div class="dropBar">
+      <h3 class="dropTitle">Apelatron</h3>
+      <!-- Button to close -->
+      <a href="javascript:void(0)" class="closeMenu" onclick="closeNav()">&times;</a>
+    </div>
+    <!-- Menu content -->
+    <div class="menu">
+      <div class="part-1">
+        <div id="part-1-row">
+          <a href="/"><%= image_tag("home.png", alt:"Imagen cambiar") %>Inicio</a>
+        </div>
+        <hr>
+        <div id="part-1-row">
+          <a href="/nueva-apelacion"><%= image_tag("mail.png", alt:"Imagen cambiar") %>Asistente de apelación</a>
+        </div>
+        <hr>
+        <div id="part-1-row">
+          <a href="/sobre-el-proyecto"><%= image_tag("balance.png", alt:"Imagen cambiar") %>Sobre el proyecto</a>
+        </div>
+        <hr>
+        <div id="part-1-row">
+          <a href="/preguntas-frecuentes"><%= image_tag("faqs.png", alt:"Imagen cambiar") %>FAQs</a>
+        </div>
+        <hr>
+      </div>
+      <%= image_tag("branding.png", class: "brandImg", alt: "Imagen de branding") %>
+      <div class="part-3">
+        <a href="#" id="extra">Politica de privacidad</a>
+        <a href="#" id="extra">Sitio de DATA</a>
+        <div id="network">
+          <h3 id="networkTitle">Redes</h3>
+          <div id="networkImg">
+            <a id="mediaImg"><%= image_tag("twitter.png", alt:"Imagen cambiar") %></a>
+            <a id="mediaImg"><%= image_tag("facebook.png", alt:"Imagen cambiar") %></a>
+            <a id="mediaImg"><%= image_tag("instagram.png", alt:"Imagen cambiar") %></a>
+            <a id="mediaImg"><%= image_tag("youtube.png", alt:"Imagen cambiar") %></a>
+          </div>
+        </div>
+        <p id="terms">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        </p>
+      </div>
+    </div>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("myNav").style.height = "900px";
+    }
+    function closeNav() {
+      document.getElementById("myNav").style.height = "0%";
+    }
+  </script>
+</header>

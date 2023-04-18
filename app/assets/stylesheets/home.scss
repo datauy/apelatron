@@ -1,0 +1,85 @@
+.main-content-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  #content-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background-color: #a4ccea;
+      background: linear-gradient(180deg, #DFEAFF 13.99%, #E4F4FF 40.78%, #FFFFFF 129.15%);
+      padding: 16px 0 32px 0;
+      width: 100%;
+      overflow: hidden;
+  }
+
+  #elipse {
+      z-index: -1;
+      position: absolute;
+      width: 124%;
+      height: 140%;
+      top: 120px;
+      border-radius: 50%;
+      background: #FFFFFF;
+  }
+
+  .logo {
+      display: flex;
+  }
+
+  .mainText {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0 20px;
+  }
+
+  .mainText #subtitle {
+      display: flex;
+      height: 14px;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #2D3473;
+  }
+
+  .mainText #page-title {
+      display: flex;
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 40px;
+      color: #2D3473;
+      align-self: stretch;
+      flex-grow: 0;
+      margin: 0;
+  }
+
+  hr {
+      display: flex;
+      background-color: rgb(42, 146, 232);
+      font-weight: 800;
+      position: relative;
+      margin: 0;
+      border-block: none;
+      height: 2px;
+      width: 40px;
+  }
+
+  p {
+      display: flex;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 22px;
+      color: #2C2C2C;
+  }
+}

@@ -1,0 +1,26 @@
+<div class="main-content-home">
+  <div id="content-header">
+    <div id="elipse"></div>
+    <div id="logo">
+        <%= image_tag("Completo.png", alt:"Robot Apelatrón") %>
+    </div>
+  </div>
+  <div class="mainText">
+    <h4 id="subtitle">
+        SOBRE EL PROYECTO
+    </h4>
+    <h2 id="page-title">
+        Asistente de apelacion
+    </h2>
+    <hr>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a,
+        mattis
+        tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum
+        tellus
+        elit
+        sed risus. Maecenas eget condimentum velit.
+    </p>
+  </div>
+  <%= link_to image_tag('arrowR.png', alt: "Flecha continuar") + "Quiero iniciar con la apelación", {:controller => :complaints, :action => :index}, class: "mainButton" %>
+</div>
