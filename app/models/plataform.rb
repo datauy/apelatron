@@ -1,2 +1,0 @@
-class Plataform < ApplicationRecord
-end
