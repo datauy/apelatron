@@ -7,4 +7,6 @@ class StaticPagesController < ApplicationController
   end
   def thank_you
   end
+  def other_actions
+  end
 end

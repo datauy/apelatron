@@ -26,6 +26,10 @@ gem 'net-http'
 gem 'activeadmin'
 # Users
 gem 'devise'
+# FA
+gem "font-awesome-sass", "~> 6.4.0"
+
+gem 'ckeditor', git: 'https://github.com/galetahub/ckeditor.git'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -1,0 +1,25 @@
+<div class="step" id="step-<%= @step %>">
+  <div class="main-frame">
+    <div id="head-img">
+        <%= image_tag(@step_data[@step][:image], alt: @step_data[@step][:alt]) %>
+    </div>
+    <div class="main-content">
+      <h2 id="subtitle">
+        <span>Paso <%= @step %></span>
+        <span><%= "#{@platform.name} / #{@reason.name} / #{@standard.name}" %></span>
+      </h2>
+      <h1 id="page-title">
+          <%= @step_data[@step][:title] %>
+      </h1>
+      <hr>
+      <% if @steps.length >= 1 %>
+        <% @steps.each do |step| %>
+          <%= render partial: 'step', locals: {step: step} %>
+        <% end %>
+      <% else %>
+          <p>Parece que no hemos encontrado lo que estás buscando por favor contacta a contacto@data.org.uy</p>
+      <% end %>
+      <%= link_to "Siguiente", {:controller => :complaints, :action => :steps, step: (@step + 1), platform: @platform.id, reason: @reason.id, standard: @standard.id}, class: "mainButton", remote:true %>
+    </div>
+  </div>
+</div>

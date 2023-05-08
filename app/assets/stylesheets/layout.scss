@@ -1,28 +1,222 @@
+* {
+  position: relative;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
 body {
     margin: 0;
     overflow-x: hidden;
 }
+h1 {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  color: #2D3473;
+  margin: 0;
+}
+h2 {
+  margin: 0;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #2D3473;
+}
+h3 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #2D3473;
+  display: flex;
+  flex-direction: column;
+  line-height: 22px;
+}
+h4 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #2C2C2C;
+}
 a {
   text-decoration: none;
 }
-.mainButton {
+input {
+  border: 1px solid #C6C6C6;
+  border-radius: 4px;
+}
+input[type='text'] {
+
+}
+button {
     display: flex;
-    flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
-    padding: 0 48px;
-    gap: 8px;
-    height: 44px;
-    background: #3FA1EB;
+    background: none;
     color: white;
-    border-radius: 4px;
-    border-style: none;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
-    line-height: 19px;
-    text-decoration: none;
-    margin: 16px 20px;
-    cursor: pointer;
+    font-size: 12px;
+    line-height: 14px;
+}
+.mainButton {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  gap: 8px;
+  height: 44px;
+  background: #3FA1EB;
+  color: white;
+  border-radius: 4px;
+  border-style: none;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-decoration: none;
+  margin: 16px auto;
+  cursor: pointer;
+  max-width: 350px;
+}
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 16px;
+  gap: 16px;
+  max-width: 768px;
+  margin: auto;
+  padding: 24px 20px;
+  > * {
+    width: 100%;
+  }
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 10;
+}
+.overlay .main-content {
+}
+#head-img {
+  display: flex;
+  justify-content: center;
+}
+#head-img img {
+  width: 100%;
+  max-width: 460px;
+}
+.error {
+  /* Feedback/Error Light */
+  background: #FFF5F5;
+  /* Feedback/Error Dark */
+  border: 1px solid #F73B3B;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  gap: 16px;
+}
+.error-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  color: #F63B3B;
+  font-size: 12px;
+  line-height: 16px;
+  font-family: 'Inter';
+}
+.error .error-inner h3 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: #F73B3B;
+  margin: 0;
+}
+.error .error-inner div {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #2C2C2C;
+  margin-top: 4px;
+}
+.fa-xmark {
+  cursor: pointer;
+}
+.success {
+  color: #3EB076;
+}
+.hidden {
+  display: none !important;
+}
+.hidden-transition {
+  animation-duration: 2s;
+  animation-name: slideout;
+
+}
+.container-transition {
+  animation-duration: 8s;
+  animation-name: container;
+
+}
+@keyframes container {
+  from {
+    flex: 0 0 200%;
+  }
+  to {
+    flex: 0 0 100%;
+  }
+}
+@keyframes slidein {
+  from {
+    margin-right: -100%;
+    width: 0;
+  }
+
+  to {
+    margin-right: 0;
+    width: 100%;
+  }
+}
+@keyframes slideout {
+  from {
+    margin-left: 0;
+    width: 100%;
+  }
+  to {
+    margin-left: -100%;
+    width: 0;
+  }
+}
+/* Responsiveness */
+@media (min-width: 768px) {
+  .mainButton {
+    margin: 16px 0;
+  }
 }

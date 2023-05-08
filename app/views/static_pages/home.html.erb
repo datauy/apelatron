@@ -9,18 +9,58 @@
     <h4 id="subtitle">
         SOBRE EL PROYECTO
     </h4>
-    <h2 id="page-title">
+    <h1 id="page-title">
         Asistente de apelacion
-    </h2>
+    </h1>
     <hr>
     <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a,
-        mattis
-        tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum
-        tellus
-        elit
-        sed risus. Maecenas eget condimentum velit.
+      ¿Te borraron una publicación de una red social? ¿Usás las plataformas para compartir información y te suspendieron la cuenta? En internet también tenés derecho a expresarte con libertad. Si te eliminaron un contenido o te bloquearon la cuenta injustamente, podés apelar la decisión. Si no sabés cómo hacerlo, seguí los pasos de Apelatron para aprender cómo presentar la apelación en la plataforma.
     </p>
   </div>
-  <%= link_to image_tag('arrowR.png', alt: "Flecha continuar") + "Quiero iniciar con la apelación", {:controller => :complaints, :action => :index}, class: "mainButton" %>
+  <%= link_to image_tag('arrowR.png', alt: "Flecha continuar") + "Quiero comenzar con el asistente", '#', class: "mainButton", id: "start" %>
 </div>
+
+<div class="overlay hidden">
+  <div class="main-content">
+    <h2><span>Lo que esta herramienta puede hacer y lo que no </span><i class="fa-solid fa-xmark"></i></h2>
+    <div id="t1">
+      <p>Antes de comenzar, un aviso. La creciente intervención de unas pocas corporaciones internacionales en el libre flujo de información y comunicación en internet ha sido considerada como una amenaza para la libertad de expresión por Relatores de Libertad de Expresión de todo el mundo.</p>
+      <p>Frente a este escenario, en el que las grandes plataformas avanzan con la remoción o desindexación de contenidos, el asistente Apelatron fue creado para asistir a los usuarios y usuarias de redes sociales a defender su derecho a expresarse en línea cuando entienden que ha habido una decisión de moderación injusta o ilegítima.</p>
+    </div>
+    <div id="t2">
+      <h4><%= image_tag("thunder.png", alt: "Imagen cambiar") %>Te va a ayudar a:</h4>
+      <ul>
+        <li>
+          Tener herramientas para comprender cuáles son tus derechos ante estas empresas.
+        </li>
+        <li>
+            Saber cómo apelar las decisiones de las plataformas para defenderte ante decisiones injustas.
+        </li>
+        <li>
+            Guiarte en el paso a paso para presentar tu apelación.
+        </li>
+      </ul>
+    </div>
+    <div id="t3">
+      <h4><%= image_tag("notDo.png", alt: "Imagen cambiar") %>Lo que no puede hacer:</h4>
+      <ul>
+        <li>
+            Apelatron es un proyecto independiente que no depende ni está vinculada con ninguna red social por lo que no es una herramienta para presentar la apelación directamente en las plataformas.
+        </li>
+        <li>
+            No brinda asesoramiento legal.
+        </li>
+      </ul>
+    </div>
+    <%= link_to image_tag('tick.png', alt: "tick") + "Entendido", {:controller => :complaints, :action => :index}, class: "mainButton" %>
+  </div>
+</div>
+<script>
+$('.fa-xmark').click(() => {
+  $('.overlay').addClass('hidden');
+});
+$('#start').click((e) => {
+  e.preventDefault();
+  $('.overlay').removeClass('hidden');
+});
+</script>

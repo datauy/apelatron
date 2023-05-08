@@ -1,5 +1,5 @@
 <footer>
-    <div id="main-content">
+    <div class="main-content">
         <div id="text-module">
             <div class="group column">
                 <h2>Sobre el proyecto </h2>
@@ -16,7 +16,7 @@
                 <h2>Datos abiertos y software libre </h2>
                 <%= image_tag("arrow-down.png", alt:"Imagen cambiar") %>
             </div>
-            <div id="open-data" class="group footer-toggle">
+            <div id="open-data" class="group footer-toggle hidden">
                 <div id="open-title">
                     <h2>Datos abiertos y software libre </h2>
                     <%= image_tag("arrow-up.png", alt:"Imagen cambiar") %>
@@ -33,84 +33,41 @@
                     Código de la aplicación en GitHub
                 </a>
             </div>
-            <div id="support-module">
-                <div id="ask-frame">
-                    <a href="http://soporte.data.org.uy/es/customer/create-ticket/" class="btn btn-transparent">
-                        <%= image_tag("support.png", alt:"Imagen cambiar") %>
-                        ¿Problemas, dudas?
-                    </a>
-                </div>
-                <div id="support-button">
-                    <button onclick="location.href='http://soporte.data.org.uy/es/'" type="button"
-                        class="btn btn-transparent">
-                        Escribí a Soporte
-                    </button>
-                </div>
-
+            <div id="ask-frame">
+                <a href="http://soporte.data.org.uy/es/customer/create-ticket/" class="btn btn-transparent">
+                    <%= image_tag("support.png", alt:"Imagen cambiar") %>
+                    ¿Problemas, dudas?
+                </a>
             </div>
+            <a id="support-button" href='http://soporte.data.org.uy/es/' >Escribí a Soporte</a>
         </div>
         <div id="module" class="group column center">
-            <h2>¿Quiénes somos?</h2>
-            <div id="logos-frame">
-                <%= image_tag("data.png", alt:"Imagen cambiar") %>
-                <%= image_tag("observacom.png", alt:"Imagen cambiar") %>
-            </div>
-            <div id='data-description' class="footer-toggle">
-                <p>DATA Uruguay es una ONG que crea herramientas de tecnología cívica para promover el
-                    conocimiento y
-                    ejercicio de derechos y hace activismo a través de Datos Abiertos y Gobierno Abierto.
-                </p>
-                <div class="social-links">
-
-                </div>
-            </div>
-            <div>
-                <div class="logos">
-                </div>
-                <div id='partner-description' class="footer-toggle">
-                    <p>El Prorrectorado de Gestión ejecuta las políticas, estrategias, proyectos y normas aprobadas
-                        por el
-                        Consejo Directivo Central, en el marco de las directivas que dicte el Rector y bajo su
-                        supervisión.
-                    </p>
-                    <div class="social-links">
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="logos">
-                </div>
-                <div id='partner-description' class="footer-toggle">
-                    <p> En el año 2012 se crea la Comisión Abierta de Equidad de Género (CAEG) como un espacio de
-                        reflexión
-                        y de
-                        definición de estrategias de abordaje de la perspectiva de equidad de género en las
-                        políticas
-                        universitarias.</p>
-                    <div class="social-links">
-                        <a href="https://gestion.udelar.edu.uy/institucional/comision-abierta-de-equidad-y-genero-caeg">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
+          <h2>¿Quiénes somos?</h2>
+          <div id="logos-frame">
+            <a href="https://data.org.uy">
+              <%= image_tag("data.png", alt:"Imagen cambiar") %>
+            </a>
+            <a href="https://observacom.org">
+              <%= image_tag("observacom.png", alt:"Imagen cambiar") %>
+            </a>
+          </div>
         </div>
         <div id="module">
-            <h2>Con el apoyo de:</h2>
-            <div id="logos-frame">
-                <%= image_tag("logo-temp.png", alt:"Imagen cambiar") %>
-                <%= image_tag("logo-temp.png", alt:"Imagen cambiar") %>
-            </div>
+          <h2>Con el apoyo de:</h2>
+          <div id="logos-frame">
+              <%= image_tag("logo-temp.png", alt:"Imagen cambiar") %>
+              <%= image_tag("logo-temp.png", alt:"Imagen cambiar") %>
+          </div>
         </div>
         <div id="module">
-            <h2>Conocé otros proyectos de DATA:</h2>
-            <div id="logos-frame">
-                <%= image_tag("atuservicio.png", alt:"Imagen cambiar") %>
-                <%= image_tag("dondereciclo.png", alt:"Imagen cambiar") %>
-                <%= image_tag("datysoc.png", alt:"Imagen cambiar") %>
-            </div>
-            <div id="data-projects" class="slides"></div>
-            <div id="slider-controls"></div>
+          <h2>Conocé otros proyectos de DATA:</h2>
+          <div id="logos-frame">
+              <%= image_tag("atuservicio.png", alt:"Imagen cambiar") %>
+              <%= image_tag("dondereciclo.png", alt:"Imagen cambiar") %>
+              <%= image_tag("datysoc.png", alt:"Imagen cambiar") %>
+          </div>
+          <div id="data-projects" class="slides"></div>
+          <div id="slider-controls"></div>
         </div>
     </div>
     <hr>
@@ -123,3 +80,13 @@
         </div>
     </div>
 </footer>
+<script>
+  jQuery('#close-data').click(() => {
+    jQuery('#close-data').addClass('hidden');
+    jQuery('#open-data').removeClass('hidden');
+  });
+  jQuery('#open-data').click(() => {
+    jQuery('#open-data').addClass('hidden');
+    jQuery('#close-data').removeClass('hidden');
+  });
+</script>

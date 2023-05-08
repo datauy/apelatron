@@ -1,4 +1,18 @@
 #steps {
+  display: flex;
+  form {
+    display: flex;
+    overflow: hidden;
+  }
+  //.step {
+  //  animation-duration: 8s;
+  //  animation-name: slidein;
+  //}
+  //.step.hidden-transition {
+  //  animation-duration: 8s;
+  //  animation-name: slideout;
+
+  //}
   #head-img {
       display: flex;
       background: linear-gradient(98.06deg, #DFEAFF 11.97%, #E4F4FF 94.65%);
@@ -7,6 +21,7 @@
   #head-img img {
       width: 100%;
       height: 100%;
+      max-height: 200px;
   }
 
   #main-content {
@@ -25,6 +40,9 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       color: #2D3473;
+      display: flex;
+      flex-direction: column;
+      line-height: 22px;
   }
 
   #page-title {
@@ -45,8 +63,9 @@
       width: 40px;
       border: none;
   }
-
-  h4 {
+  .answerT {
+      padding: 8px;
+      h3 {
       margin: 0;
       font-family: 'Inter';
       font-style: normal;
@@ -56,17 +75,15 @@
       color: #2C2C2C;
       display: flex;
       gap: 8px;
+      letter-spacing: inherit;
+      text-transform: none;
+      flex-direction: row;
+      img {
+        width: 12px;
+        height: 16px;
+      }
+    }
   }
-
-  h3 {
-      font-family: 'Work Sans';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 24px;
-      color: #2D3473;
-  }
-
   ul {
       display: flex;
       flex-direction: column;
@@ -90,6 +107,7 @@
       font-size: 16px;
       line-height: 22px;
       color: #2C2C2C;
+      margin: 0;
   }
 
   #input-frame {
@@ -101,28 +119,29 @@
   }
 
   #complaint_email {
-      border: 1px solid #C6C6C6;
-      border-radius: 4px;
       padding: 10px 16px;
-      border-radius: 4px;
   }
 
-  #select-frame {
+  .select-frame {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding-top: 10px;
+      gap: 8px;
+      width: 100%;
+      max-width: 420px;
   }
 
-  #select-frame select {
+  .select-frame select {
       width: 100%;
       border: 1px solid #C6C6C6;
       color: #1F1F1F;
       border-radius: 4px;
       padding: 10px 16px;
+      background: none;
   }
 
-  #select-frame option {
+  .select-frame option {
       font-family: 'Inter';
       font-style: normal;
       font-weight: 400;
@@ -130,23 +149,29 @@
       line-height: 22px;
   }
 
-  #suplement {
+  .suplement {
       font-family: 'Inter';
       font-style: normal;
       font-weight: 400;
       font-size: 12px;
       line-height: 16px;
       color: #878787;
+      &.success {
+        color: #3EB076;
+      }
   }
 
   #check-frame {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       align-items: flex-start;
-      padding-bottom: 64px;
       gap: 8px;
+      padding-bottom: 16px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid #F5F5F5;
+      width: 100%;
   }
-  #terms-accept {
+  #terms {
     margin-left: 0;
   }
   #check-frame2 {
@@ -177,13 +202,7 @@
       background: #E4F4FF;
       padding: 8px 8px;
   }
-
-  #answerT {
-      padding: 8px;
-
-  }
-
-  #prop {
+  .prop {
       font-family: 'Inter';
       font-style: normal;
       font-weight: 600;
@@ -234,25 +253,25 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-top: 16px;
       gap: 10px;
   }
 
   .upload-button button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 16px;
-      background: #FFFFFF;
-      border: 2px solid #3FA1EB;
-      border-radius: 4px;
-      color: #3FA1EB;
-      border-radius: 4px;
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 19px;
-      gap: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    background: #FFFFFF;
+    border: 2px solid #3FA1EB;
+    border-radius: 4px;
+    color: #3FA1EB;
+    border-radius: 4px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    gap: 8px;
   }
 }

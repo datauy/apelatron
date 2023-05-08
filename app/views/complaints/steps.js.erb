@@ -1,0 +1,11 @@
+<% if @steps.length == 0 %>
+  jQuery('#steps').append('<%= escape_javascript(render partial: "other_actions") %>');
+  //window.location.href = "/otras-acciones";
+<% else %>
+  jQuery('.step').addClass('hidden-transition');
+  setTimeout(function () {
+    jQuery('.step').remove();
+  }, 2000);
+  $('.btn-back')[0].href='<%= "/paso/#{(@step - 1)}/#{@platform.id}/#{@reason.id}/#{@standard.id}" %>';
+  jQuery('#steps').append('<%= escape_javascript(render partial: "steps") %>');
+<%end%>

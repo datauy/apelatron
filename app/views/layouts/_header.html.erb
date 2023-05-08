@@ -1,7 +1,6 @@
 <header>
-  <a href="/" class="logo"><%= content_for?(:header_left) ? yield(:html_left) : image_tag('logo.png') %></a>
-  <h1><%= content_for?(:header_title) ? yield(:header_title) : "Apelatrón" %></h1>
-  <div id="menu"></div>
+  <%= content_for?(:header_left) ? yield(:header_left) : link_to(image_tag('logo.png'), '/', class: 'logo') %></a>
+  <%= content_for?(:header_title) ? yield(:header_title) : "<h2>Apelatrón</h2>".html_safe %>
   <div class="menu-container">
       <!-- Hamburger icon -->
       <img class="hamb" src=<%= asset_path("Hamburger-menu.png") %> onclick="openNav()">
@@ -48,7 +47,7 @@
             <a id="mediaImg"><%= image_tag("youtube.png", alt:"Imagen cambiar") %></a>
           </div>
         </div>
-        <p id="terms">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        <p class="terms">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
           incididunt
           ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
         </p>

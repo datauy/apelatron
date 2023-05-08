@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  platform: one
+  standard: one
+  reason: 
+  order: 
+  step_number: 
+  title: MyString
+  description: MyText
+  template: MyText
+
+two:
+  platform: two
+  standard: two
+  reason: 
+  order: 
+  step_number: 
+  title: MyString
+  description: MyText
+  template: MyText

@@ -1,0 +1,19 @@
+<% if @complaint.errors.present? %>
+  if (<%= @complaint.errors.messages.key? :platform %>) {
+    jQuery('#platform-error').removeClass('hidden');
+  }
+  if (<%= @complaint.errors.messages.key? :country %>) {
+    jQuery('#country-error').removeClass('hidden');
+  }
+  if (<%= @complaint.errors.messages.key? :reason %>) {
+    jQuery('#reason-error').removeClass('hidden');
+  }
+  if (<%= @complaint.errors.messages.key? :standard %>) {
+    jQuery('#standard-error').removeClass('hidden');
+  }
+  jQuery('#error-message').append('<%= error_message(@message) %>');
+  jQuery('.error').removeClass('hidden');
+<% else %>
+  jQuery('.step').addClass('hidden');
+  jQuery('#steps').append('<%= escape_javascript(render partial: "steps") %>');
+<% end %>
