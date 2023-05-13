@@ -1,0 +1,12 @@
+<% content_for(:html_title) { 'Apelatrón - Resultado apelación' } %>
+<% content_for(:header_title) { '<h1>Resultado de la apelación</h1>'.html_safe } %>
+<% content_for(:header_left) { link_to '<', '/', class: 'btn-back' } %>
+<div class=="main-content">
+  <%= form_with model: @complaint, local: false do |form| %>
+  <div id="input-frame">
+    <%= form.delay :delay, placeholder: "Días hasta la respuesta" %>
+    <%= error_text({id: 'email-error', message: 'El correo no parece ser correcto'}) %>
+    <div class="suplement">Por favor especifica la cantidad de días que demoraron en responderte.</div>
+  </div>
+  <% end %>
+</div>

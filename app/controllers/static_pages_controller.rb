@@ -8,5 +8,6 @@ class StaticPagesController < ApplicationController
   def thank_you
   end
   def other_actions
+    @step = 0
   end
 end

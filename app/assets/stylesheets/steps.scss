@@ -3,16 +3,24 @@
   form {
     display: flex;
     overflow: hidden;
+    width: 100%;
   }
-  //.step {
-  //  animation-duration: 8s;
-  //  animation-name: slidein;
-  //}
-  //.step.hidden-transition {
-  //  animation-duration: 8s;
-  //  animation-name: slideout;
-
-  //}
+  .step {
+    width: 100%;
+    animation-duration: 2s;
+  }
+  .step.left-in {
+    animation-name: left-in;
+  }
+  .step.left-out {
+    animation-name: left-out;
+  }
+  .step.right-in {
+    animation-name: right-in;
+  }
+  .step.right-out {
+    animation-name: right-out;
+  }
   #head-img {
       display: flex;
       background: linear-gradient(98.06deg, #DFEAFF 11.97%, #E4F4FF 94.65%);

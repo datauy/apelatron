@@ -1,16 +1,10 @@
 <% if @step.present? %>
-  var step = jQuery('.step');
-  const container = jQuery('form');
-  step.removeClass('hidden-transition');
-  step.addClass('hidden-transition');
-  container.removeClass('container-transition');
-  container.addClass('container-transition');
-  //setTimeout(function () {
-  //  step.addClass('hidden');
-  //}, 2000);
   console.log("VAAAAA STEP", <%= @step %>);
   <% if @step > 2 %>
-    jQuery('#steps').append('<%= escape_javascript(render partial: "steps") %>');
+    if (jQuery('#step-'+<%= @step %>).length == 0 ) {
+      jQuery('#steps').append('<%= escape_javascript(render partial: "steps") %>');
+    }
+    slideTo(<%= @step %>, <%= (@step -1) %>);
   <% else %>
     email = jQuery('#complaint_email').val();
     tyc = jQuery('#terms').is(':checked');
@@ -22,11 +16,7 @@
       jQuery('#email-error').removeClass('hidden');
     }
     if ( regex.test(email) && tyc ) {
-      jQuery('#step-2').removeClass('hidden');
-      //jQuery('#step-1').addClass('hidden');
-    }
-    else {
-      jQuery('#step-1').removeClass('hidden');
+      slideTo(2, 1);
     }
   <% end %>
 <% end %>

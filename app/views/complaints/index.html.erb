@@ -1,10 +1,9 @@
 <% content_for(:html_title) { 'Apelatrón - Nueva apelación' } %>
 <% content_for(:header_title) { '<h1>Nueva apelación</h1>'.html_safe } %>
 <% content_for(:header_left) { link_to '<', '#', class: 'btn-back' } %>
-<div id="steps">
-  <%= form_with model: @complaint, class: 'container-transition', local: false do |form| %>
+<%= form_with model: @complaint, local: false do |form| %>
+<div id="steps" class='container-transition'>
   <div class="step" id="step-1">
-
     <div class="main-frame">
       <div id="head-img">
           <%= image_tag("step-1-header.svg", alt: "Imagen Paso 1") %>
@@ -83,34 +82,24 @@
       </div>
     </div>
   </div>
-  <% end %>
 </div>
+<% end %>
 <script>
-  function copy2clip(id) {
-    var copyText = document.getElementById(id);
-    copyText.select();
-    //copyText.setSelectionRange(0, 99999); // For mobile devices
-    navigator.clipboard.writeText(copyText.value);
-    // Alert the copied text
-    jQuery('#message-'+id).removeClass('hidden');
-    setTimeout(() => {
-      jQuery('#message-'+id).addClass('hidden');
-    }, "3000");
-  }
   //
   $('.btn-back').click((e) => {
     e.preventDefault();
-    var step = parseInt(jQuery('.step:visible')[0].id.split('-')[1]) - 1;
-    $('.step').addClass('hidden');
-    $('#step-'+step).removeClass('hidden');
+    var step_id = parseInt(jQuery('.step:visible')[0].id.split('-')[1]);
+    if ( step_id == 3 ) {
+      $('.overlay').removeClass('hidden');
+    }
+    else {
+      slideTo((step_id -1), step_id);
+    }
   });
   $('input').on('change', (e) => {
     $('.error').addClass('hidden');
   });
   $('select').on('change', (e) => {
     $('.error-text').addClass('hidden');
-  });
-  $('.fa-xmark').click(() => {
-    $('.error').addClass('hidden');
   });
 </script>

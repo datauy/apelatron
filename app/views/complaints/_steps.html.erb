@@ -16,10 +16,31 @@
         <% @steps.each do |step| %>
           <%= render partial: 'step', locals: {step: step} %>
         <% end %>
+        <% if @step == 5 && @complaint.present? %>
+          <%= form_with(model: @complaint, local: false) do |form| %>
+          <div id="input-frame">
+            <h4>Por favor compartinos tu número de seguimiento</h4>
+            <%= form.text_field :follow_number, placeholder: "Número de seguimiento" %>
+            <%= error_text({id: 'email-error', message: 'El correo no parece ser correcto'}) %>
+            <div class="suplement">Debería ser suministrado por la plataforma al ingreso de la apelación.</div>
+          </div>
+          <% end %>
+          <script>
+            $('#submit-5').click(() => {
+              $.ajax({
+                method: "PATCH",
+                url: '<%= "/complaint/#{@complaint.id}"%>',
+                data: { token: <%= @complaint.token %>, follow_number: "Boston" }
+              })
+            });
+          </script>
+        <% else %>
+          <%= link_to "Siguiente", {:controller => :complaints, :action => :steps, step: (@step + 1), platform: @platform.id, reason: @reason.id, standard: @standard.id, token: params[:token]}, class: "mainButton", id: "submit-#{@step}" , remote:true %>
+        <% end %>
       <% else %>
           <p>Parece que no hemos encontrado lo que estás buscando por favor contacta a contacto@data.org.uy</p>
+          <%= link_to "Volver al inicio", '/', class: "mainButton" %>
       <% end %>
-      <%= link_to "Siguiente", {:controller => :complaints, :action => :steps, step: (@step + 1), platform: @platform.id, reason: @reason.id, standard: @standard.id}, class: "mainButton", remote:true %>
     </div>
   </div>
 </div>

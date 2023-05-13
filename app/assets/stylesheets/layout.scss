@@ -175,13 +175,12 @@ button {
 .hidden {
   display: none !important;
 }
-.hidden-transition {
-  animation-duration: 2s;
-  animation-name: slideout;
-
-}
+//.hidden-transition {
+//  animation-duration: 2s;
+///  animation-name: slideout;
+//}
 .container-transition {
-  animation-duration: 8s;
+  animation-duration: 2s;
   animation-name: container;
 
 }
@@ -193,25 +192,44 @@ button {
     flex: 0 0 100%;
   }
 }
-@keyframes slidein {
+@keyframes left-in {
   from {
-    margin-right: -100%;
-    width: 0;
+    margin-left: -100%;
+    width: 100%;
   }
-
   to {
-    margin-right: 0;
+    margin-left: 0;
     width: 100%;
   }
 }
-@keyframes slideout {
+@keyframes left-out {
   from {
     margin-left: 0;
     width: 100%;
   }
   to {
     margin-left: -100%;
-    width: 0;
+    width: 100%;
+  }
+}
+@keyframes right-in {
+  from {
+    margin-right: -100%;
+    width: 100%;
+  }
+  to {
+    margin-right: 0;
+    width: 100%;
+  }
+}
+@keyframes right-out {
+  from {
+    margin-right: 0;
+    width: 100%;
+  }
+  to {
+    margin-right: -100%;
+    width: 100%;
   }
 }
 /* Responsiveness */

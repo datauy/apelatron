@@ -1,17 +1,10 @@
 <% content_for(:html_title) { 'Apelatrón - Apelación' } %>
 <% content_for(:header_title) { '<h2>Apelación</h2>'.html_safe } %>
-<% content_for(:header_left) { link_to '<', "/paso/#{(@step.to_i - 1)}/#{@platform.id}/#{@reason.id}/#{@standard.id}", class: 'btn-back', remote: true } %>
+<% content_for(:header_left) { link_to '<', "/paso/#{(@step.to_i - 1)}/#{@platform.id}/#{@reason.id}/#{@standard.id}?back=1", class: 'btn-back', remote: true } %>
 <div id="steps">
   <%= render partial: 'steps' %>
 </div>
 <script>
-  $('.btn-back').click((e) => {
-    e.preventDefault();
-    $('.step').hide();
-    var step = parseInt(e.target.id.split('-')[1]) - 1;
-    console.log("STEP BACK: " + step);
-    $('.step-'+step).show();
-  });
   function copy2clip(id) {
     var copyText = document.getElementById(id);
     copyText.select();

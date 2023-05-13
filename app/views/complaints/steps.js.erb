@@ -1,11 +1,22 @@
 <% if @steps.length == 0 %>
-  jQuery('#steps').append('<%= escape_javascript(render partial: "other_actions") %>');
-  //window.location.href = "/otras-acciones";
+  <% if @step == 2 %>
+    jQuery('#steps').append('<%= escape_javascript(render partial: "static_pages/warning") %>');
+  <% else %>
+    jQuery('#steps').append('<%= escape_javascript(render partial: "static_pages/other_actions") %>');
+  <% end %>
 <% else %>
-  jQuery('.step').addClass('hidden-transition');
-  setTimeout(function () {
-    jQuery('.step').remove();
-  }, 2000);
-  $('.btn-back')[0].href='<%= "/paso/#{(@step - 1)}/#{@platform.id}/#{@reason.id}/#{@standard.id}" %>';
-  jQuery('#steps').append('<%= escape_javascript(render partial: "steps") %>');
+  console.log("STEP STEP", <%= @step %>);
+  $('.btn-back')[0].href='<%= "/paso/#{(@step - 1)}/#{@platform.id}/#{@reason.id}/#{@standard.id}?back=1#{ @token_param }" %>';
+  if (jQuery('#step-'+<%= @step %>).length == 0 ) {
+    <% if @back %>
+      jQuery('#steps').prepend('<%= escape_javascript(render partial: "steps") %>');
+    <% else %>
+      jQuery('#steps').append('<%= escape_javascript(render partial: "steps") %>');
+    <% end %>
+  }
 <%end%>
+<% if @back %>
+  slideTo(<%= @step %>, <%= (@step + 1) %>);
+<% else %>
+  slideTo(<%= @step %>, <%= (@step - 1) %>);
+<% end %>

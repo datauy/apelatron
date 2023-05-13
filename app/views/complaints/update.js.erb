@@ -2,20 +2,11 @@
   if (<%= @complaint.errors.messages.key? :platform %>) {
     jQuery('#platform-error').removeClass('hidden');
   }
-  if (<%= @complaint.errors.messages.key? :country %>) {
-    jQuery('#country-error').removeClass('hidden');
-  }
-  if (<%= @complaint.errors.messages.key? :reason %>) {
-    jQuery('#reason-error').removeClass('hidden');
-  }
-  if (<%= @complaint.errors.messages.key? :standard %>) {
-    jQuery('#standard-error').removeClass('hidden');
-  }
   jQuery('#error-message').append('<%= error_message(@message) %>');
   jQuery('.error').removeClass('hidden');
 <% else %>
   if (jQuery('#step-'+<%= @step %>).length == 0 ) {
     jQuery('#steps').append('<%= escape_javascript(render partial: "steps") %>');
   }
-  slideTo(3,2);
+  slideTo(6,5);
 <% end %>
