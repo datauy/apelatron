@@ -5,8 +5,14 @@
   jQuery('#error-message').append('<%= error_message(@message) %>');
   jQuery('.error').removeClass('hidden');
 <% else %>
-  if (jQuery('#step-'+<%= @step %>).length == 0 ) {
-    jQuery('#steps').append('<%= escape_javascript(render partial: "steps") %>');
+  <% if @steps.length == 0 %>
+  if (jQuery('.other-actions').length == 0) {
+    jQuery('#steps').append('<%= escape_javascript(render partial: "static_pages/other_actions") %>');
   }
-  slideTo(6,5);
+  <% else %>
+    if (jQuery('#step-'+<%= @step %>).length == 0 ) {
+      jQuery('#steps').append('<%= escape_javascript(render partial: "steps") %>');
+    }
+  <% end %>
+  slideTo(<%= @step %>,<%= (@step - 1) %>);
 <% end %>

@@ -28,9 +28,14 @@ class ComplaintsController < ApplicationController
         end
       }
       format.html{
+        if params[:token]
+          @step = 2
+          @complaint = Complaint.find_by(token: params[:token])
+        else
+          @step = 1
+          @complaint = Complaint.new
+        end
         logger.info "\n Processing first steps #{ @step }"
-        @step = 1
-        @complaint = Complaint.new
         @platform_options = Platform.all.map { |p| [p.name, p.id] }
         @standard_options = Standard.all.map { |p| [p.name, p.id] }
         @country_options = Country.all.map { |p| [p.name, p.id ] }
@@ -91,16 +96,21 @@ class ComplaintsController < ApplicationController
     respond_to do |format|
       format.js {
         @complaint = Complaint.find(params[:id])
-        @complaint.update( params.require(:complaint).permit(:token) )
+        @complaint.update( complaint_params )
+        if (params[:complaint].keys.length == 1 )
+          step = 5
+        else
+          step = 2
+        end
         if @complaint.valid?
-          params[:step] = 6
+          params[:step] = step + 1
           params[:platform] = @complaint.platform_id
           params[:reason] = @complaint.reason_id
           params[:standard] = @complaint.standard_id
           params[:token] = @complaint.token
           steps
         else
-          @step = 5
+          @step = step
           @message = {
             title: 'Error actualizando el número de apelación, por favor complete todos los campos.',
             message: 'Si el problema persiste contacte a <a href="mailto:soporte@data.org.uy">soporte@data.org.uy</a>'.html_safe

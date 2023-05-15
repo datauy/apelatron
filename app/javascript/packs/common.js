@@ -34,3 +34,6 @@ window.slideTo = function(to_step, step_id) {
     next_step.removeClass(transition[0]);
   }, 2000);
 }
+$('.fa-xmark').click(() => {
+  $('.overlay').addClass('hidden');
+});

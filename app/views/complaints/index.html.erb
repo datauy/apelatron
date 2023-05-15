@@ -19,15 +19,15 @@
         <p>
           Para comenzar el proceso del asistente de apelación, necesitamos que ingreses tu correo electrónico. Por favor, proporciona una dirección a la que tengas acceso y revises regularmente.
         </p>
-        <div id="input-frame">
+        <div class="input-frame">
           <%= form.email_field :email, placeholder: "Correo Electronico" %>
           <%= error_text({id: 'email-error', message: 'El correo no parece ser correcto'}) %>
           <div class="suplement">No vamos a compartirlo con nadie, ni enviar spam.</div>
         </div>
         <div id="check-frame">
             <label>
-              <input type="checkbox" id="terms" name="terms">
-              Acepto los <%= link_to "términos y condiciones de uso", {:controller => :static_pages, :action => :about}, anchor: "terms", target: '_blank' %>.
+              <input type="checkbox" id="terms" name="terms" <%= @complaint.id.present? ? 'checked' : ''%>>
+              Acepto los <%= link_to "términos y condiciones de uso", "/sobre-el-proyecto#terms", target: '_blank' %>.
             </label>
             <%= error_text({id: 'tyc-error', message: 'Debe aceptar los términos y condiciones'}) %>
         </div>

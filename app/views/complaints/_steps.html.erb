@@ -17,21 +17,24 @@
           <%= render partial: 'step', locals: {step: step} %>
         <% end %>
         <% if @step == 5 && @complaint.present? %>
-          <%= form_with(model: @complaint, local: false) do |form| %>
-          <div id="input-frame">
-            <h4>Por favor compartinos tu número de seguimiento</h4>
+          <h4>Por favor compartinos tu número de seguimiento</h4>
+          <%= form_with(model: @complaint, id: 'follow', local: false) do |form| %>
+          <div class="input-frame">
             <%= form.text_field :follow_number, placeholder: "Número de seguimiento" %>
             <%= error_text({id: 'email-error', message: 'El correo no parece ser correcto'}) %>
             <div class="suplement">Debería ser suministrado por la plataforma al ingreso de la apelación.</div>
+            <%= form.submit "Siguiente", id: 'submit-5', class: 'mainButton' %>
           </div>
           <% end %>
+
           <script>
-            $('#submit-5').click(() => {
+            $('#submit-5').click((e) => {
+              e.preventDefault();
               $.ajax({
                 method: "PATCH",
-                url: '<%= "/complaint/#{@complaint.id}"%>',
-                data: { token: <%= @complaint.token %>, follow_number: "Boston" }
-              })
+                url: '<%= "/complaints/#{@complaint.id}"%>',
+                data: $('#follow').serialize()//{ id: <%= @complaint.id %>, token: <%= @complaint.token %>, follow_number: 1234567890 }
+              });
             });
           </script>
         <% else %>
