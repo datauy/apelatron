@@ -1,11 +1,7 @@
 <% if @steps.length == 0 %>
-  <% if @step == 2 %>
-    jQuery('#steps').append('<%= escape_javascript(render partial: "static_pages/warning") %>');
-  <% else %>
-    if (jQuery('.other-actions').length == 0) {
-      jQuery('#steps').append('<%= escape_javascript(render partial: "static_pages/other_actions") %>');
-    }
-  <% end %>
+  if (jQuery('.other-actions').length == 0) {
+    jQuery('#steps').append('<%= escape_javascript(render partial: "static_pages/other_actions") %>');
+  }
 <% else %>
   console.log("STEP STEP", <%= @step %>);
   $('.btn-back')[0].href='<%= "/paso/#{(@step - 1)}/#{@platform.id}/#{@reason.id}/#{@standard.id}?back=1#{ @token_param }" %>';
