@@ -3,7 +3,7 @@
 <% content_for(:header_left) { link_to '<', '#', class: 'btn-back' } %>
 <%= form_with model: @complaint, local: false do |form| %>
 <div id="steps" class='container-transition'>
-  <div class="step" id="step-1">
+  <div class="step <%= @step == 1 ? '' : 'hidden' %>" id="step-1">
     <div class="main-frame">
       <div id="head-img">
           <%= image_tag("step-1-header.svg", alt: "Imagen Paso 1") %>
@@ -42,7 +42,7 @@
       </div>
     </div>
   </div>
-  <div class="step hidden" id="step-2">
+  <div class="step <%= @step == 2 ? '' : 'hidden' %>" id="step-2">
     <div class="main-frame">
       <div id="head-img">
           <%= image_tag("step-1-header.svg", alt: "Imagen Paso 2") %>
@@ -92,7 +92,7 @@
     if ( step_id == 3 ) {
       $('.overlay').removeClass('hidden');
     }
-    else {
+    else if (step_id != 1) {
       slideTo((step_id -1), step_id);
     }
   });

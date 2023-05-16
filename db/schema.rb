@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_28_191355) do
+ActiveRecord::Schema.define(version: 2023_05_16_011852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 2023_04_28_191355) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
+  end
+
+  create_table "complaint_relations", force: :cascade do |t|
+    t.bigint "complaint_id", null: false
+    t.bigint "standard_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["complaint_id"], name: "index_complaint_relations_on_complaint_id"
+    t.index ["standard_id"], name: "index_complaint_relations_on_standard_id"
   end
 
   create_table "complaints", force: :cascade do |t|
@@ -77,10 +86,17 @@ ActiveRecord::Schema.define(version: 2023_04_28_191355) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "step_relations", force: :cascade do |t|
+    t.bigint "step_id", null: false
+    t.bigint "standard_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["standard_id"], name: "index_step_relations_on_standard_id"
+    t.index ["step_id"], name: "index_step_relations_on_step_id"
+  end
+
   create_table "steps", force: :cascade do |t|
     t.bigint "platform_id", null: false
-    t.bigint "standard_id", null: false
-    t.integer "reason"
     t.integer "order"
     t.integer "step_number"
     t.string "title"
@@ -91,7 +107,6 @@ ActiveRecord::Schema.define(version: 2023_04_28_191355) do
     t.bigint "reason_id", null: false
     t.index ["platform_id"], name: "index_steps_on_platform_id"
     t.index ["reason_id"], name: "index_steps_on_reason_id"
-    t.index ["standard_id"], name: "index_steps_on_standard_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -106,11 +121,14 @@ ActiveRecord::Schema.define(version: 2023_04_28_191355) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "complaint_relations", "complaints"
+  add_foreign_key "complaint_relations", "standards"
   add_foreign_key "complaints", "countries"
   add_foreign_key "complaints", "platforms"
   add_foreign_key "complaints", "reasons"
   add_foreign_key "complaints", "standards"
+  add_foreign_key "step_relations", "standards"
+  add_foreign_key "step_relations", "steps"
   add_foreign_key "steps", "platforms"
   add_foreign_key "steps", "reasons"
-  add_foreign_key "steps", "standards"
 end

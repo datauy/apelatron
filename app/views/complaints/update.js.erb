@@ -14,5 +14,8 @@
       jQuery('#steps').append('<%= escape_javascript(render partial: "steps") %>');
     }
   <% end %>
+  if ( $('.overlay').length == 0 ) {
+    jQuery('body').append('<%= escape_javascript(render partial: "warning") %>');
+  }
   slideTo(<%= @step %>,<%= (@step - 1) %>);
 <% end %>

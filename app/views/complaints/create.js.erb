@@ -13,10 +13,15 @@
   }
   jQuery('#error-message').append('<%= error_message(@message) %>');
   jQuery('.error').removeClass('hidden');
-<% else %>
+<% elsif @steps.length != 0 %>
   if (jQuery('#step-'+<%= @step %>).length == 0 ) {
     jQuery('#steps').append('<%= escape_javascript(render partial: "steps") %>');
     jQuery('body').append('<%= escape_javascript(render partial: "warning") %>');
+  }
+  slideTo(3,2);
+<% else %>
+  if (jQuery('.other-actions').length == 0) {
+    jQuery('#steps').append('<%= escape_javascript(render partial: "static_pages/other_actions") %>');
   }
   slideTo(3,2);
 <% end %>

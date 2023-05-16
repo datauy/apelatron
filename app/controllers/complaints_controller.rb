@@ -52,7 +52,7 @@ class ComplaintsController < ApplicationController
       @reason = Reason.find(params[:reason]) #Get?
       @standard = Standard.find(params[:standard]) #Get?
       @step_data = @@step_data
-      @steps = Step.where( step_number: @step, platform_id: @platform.id, standard_id: @standard.id, reason_id: @reason.id ).order(:order)
+      @steps = Step.joins(:standards).where( step_number: @step, platform_id: @platform.id, "standards.id": @standard.id, reason_id: @reason.id ).order(:order)
       @back = params[:back].present? ? true : false;
       if params[:token]
         @token_param = "&token=#{params[:token]}"

@@ -2,7 +2,7 @@
   <% if @step == 2 %>
     jQuery('#steps').append('<%= escape_javascript(render partial: "static_pages/warning") %>');
   <% else %>
-    if (jQuery('.other_actions').length == 0) {
+    if (jQuery('.other-actions').length == 0) {
       jQuery('#steps').append('<%= escape_javascript(render partial: "static_pages/other_actions") %>');
     }
   <% end %>

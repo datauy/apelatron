@@ -7,7 +7,7 @@
         <a href="/nueva-apelacion?token=<%= params[:token] %>" class="mainButton back-confirm">Realizar cambios en la apelación</a>
       <% end %>
       <a href="/nueva-apelacion" class="mainButton back-confirm">Realizar una nueva apelación</a>
-      <a href="#" class="back-cancel">Volver al paso 3</a>
+      <a href="#" class="back-cancel"><h3>Volver al paso 3</h3></a>
     </div>
   </div>
 </div>
@@ -17,6 +17,9 @@
   });
   $('back-cancel').click((e) => {
     e.preventDefault();
+    $('.overlay').addClass('hidden');
+  });
+  $('.fa-xmark').click(() => {
     $('.overlay').addClass('hidden');
   });
 </script>

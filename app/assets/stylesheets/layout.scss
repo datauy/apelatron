@@ -127,6 +127,10 @@ button {
   box-shadow: 0px 0px 10px 7px rgba(0, 0, 0, 0.2);
   padding: 30px;
 }
+.overlay h3 {
+  justify-content: space-between;
+  flex-direction: row;
+}
 #head-img {
   display: flex;
   justify-content: center;
