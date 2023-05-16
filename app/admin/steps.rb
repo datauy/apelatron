@@ -34,4 +34,14 @@ ActiveAdmin.register Step do
     end
     f.actions
   end
+
+  index do
+    id_column
+    column :platform
+    column :reason
+    column :standards
+    column :step_number
+    column  :order
+    actions
+  end
 end
