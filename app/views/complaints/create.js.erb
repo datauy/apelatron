@@ -16,7 +16,6 @@
 <% elsif @steps.length != 0 %>
   if (jQuery('#step-'+<%= @step %>).length == 0 ) {
     jQuery('#steps').append('<%= escape_javascript(render partial: "steps") %>');
-    jQuery('body').append('<%= escape_javascript(render partial: "warning") %>');
   }
   slideTo(3,2);
 <% else %>
