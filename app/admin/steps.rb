@@ -44,4 +44,21 @@ ActiveAdmin.register Step do
     column  :order
     actions
   end
+
+  show do
+    attributes_table do
+      row :platform
+      row :reason
+      row :standards
+      row :step_number
+      row :order
+      row :title
+      row "Descripción" do |s|
+        s.description.html_safe
+      end
+      row "Template" do |s|
+        s.template.html_safe
+      end
+    end
+  end
 end

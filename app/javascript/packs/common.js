@@ -25,6 +25,7 @@ window.slideTo = function(to_step, step_id) {
   var next_step = jQuery('#step-' + to_step);
   container.removeClass('container-transition');
   container.addClass('container-transition');
+  window.scrollTo({top: 0, behavior: "smooth"});
   current_step.addClass(transition[1]);
   next_step.addClass(transition[0]);
   next_step.removeClass('hidden');
