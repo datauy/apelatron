@@ -71,6 +71,32 @@ button {
     font-size: 12px;
     line-height: 14px;
 }
+.select-frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 10px;
+    gap: 8px;
+    width: 100%;
+    max-width: 420px;
+}
+
+.select-frame select {
+    width: 100%;
+    border: 1px solid #C6C6C6;
+    color: #1F1F1F;
+    border-radius: 4px;
+    padding: 10px 16px;
+    background: none;
+}
+
+.select-frame option {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+}
 .mainButton {
   display: flex;
   flex-direction: row-reverse;
@@ -107,11 +133,22 @@ button {
   }
 }
 .input-frame {
-    width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.suplement {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #878787;
+  &.success {
+    color: #3EB076;
+  }
 }
 .overlay {
   position: absolute;

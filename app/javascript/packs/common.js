@@ -12,15 +12,11 @@ window.copy2clip = function(id) {
 }
 //
 window.slideTo = function(to_step, step_id) {
-  //var step_id = parseInt(jQuery('.step:visible')[0].id.split('-')[1]);
-  console.log("THIS STEP:", step_id);
   var current_step = jQuery('#step-' + step_id);
   var transition = ['right-in', 'left-out'];
   if ( to_step < step_id ) {
     transition = ['left-in', 'right-out'];
   }
-  //var to_step = step_id + num;
-  console.log("Next STEP:", to_step);
   var container = jQuery('#steps');
   var next_step = jQuery('#step-' + to_step);
   container.removeClass('container-transition');

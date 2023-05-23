@@ -1,12 +1,30 @@
 <% content_for(:html_title) { 'Apelatrón - Resultado apelación' } %>
-<% content_for(:header_title) { '<h1>Resultado de la apelación</h1>'.html_safe } %>
+<% content_for(:header_title) { '<h2>Resultado de la apelación</h2>'.html_safe } %>
 <% content_for(:header_left) { link_to '<', '/', class: 'btn-back' } %>
-<div class=="main-content">
-  <%= form_with model: @complaint, local: false do |form| %>
-  <div class="input-frame">
-    <%= form.delay :delay, placeholder: "Días hasta la respuesta" %>
-    <%= error_text({id: 'email-error', message: 'El correo no parece ser correcto'}) %>
+<div id="head-img">
+    <%= image_tag("thankyou-robot.svg", alt: "Apelatrón: Gracias!") %>
+</div>
+<div class="main-content">
+  <h3>Bajada pendiente</h3>
+  <h1>Respuesta registrada</h1>
+  <p>Si podés, contanos cómo fue el proceso de apelación en la plataforma.</p>
+  <%= form_with model: @complaint do |form| %>
+  <div class="select-frame">
+    <%= form.select :delay, options_for_select(Complaint.delays.map {|key, value| [key.titleize, Complaint.delays.key(value)]}, @complaint.delay), class: (@complaint.errors.messages.key?(:platform) ? "error" : ""), :prompt => "¿Cuánto tardó aproximadamente?" %>
     <div class="suplement">Por favor especifica la cantidad de días que demoraron en responderte.</div>
   </div>
+  <div class="select-frame">
+    <%= form.select :usability, options_for_select(Complaint.usabilities.map {|key, value| [key.titleize, Complaint.usabilities.key(value)]}, @complaint.usability), class: (@complaint.errors.messages.key?(:usability) ? "error" : ""), :prompt => "¿Cómo te resultó el proceso en la plataforma?" %>
+    <div class="suplement">Por favor especifica la cantidad de días que demoraron en responderte.</div>
+  </div>
+  <div class="select-frame">
+    <%= form.select :satisfaction, options_for_select(Complaint.satisfactions.map {|key, value| [key.titleize, Complaint.satisfactions.key(value)]}, @complaint.satisfaction), class: (@complaint.errors.messages.key?(:satisfaction) ? "error" : ""), :prompt => "¿Estás conforme con lo que pudiste presentar?" %>
+    <div class="suplement">Por favor especifica la cantidad de días que demoraron en responderte.</div>
+  </div>
+  <div class="select-frame">
+    <%= form.select :useful, options_for_select(Complaint.usefuls.map {|key, value| [key.titleize, Complaint.usefuls.key(value)]}, @complaint.useful), class: (@complaint.errors.messages.key?(:useful) ? "error" : ""), :prompt => "¿Te resultó útil Apelatrón?" %>
+    <div class="suplement">Por favor especifica la cantidad de días que demoraron en responderte.</div>
+  </div>
+  <%= form.submit "Enviar", class: 'mainButton' %>
   <% end %>
 </div>

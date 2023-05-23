@@ -117,9 +117,9 @@ class ComplaintsController < ApplicationController
   #
   def update
     respond_to do |format|
+      @complaint = Complaint.find(params[:id])
+      @complaint.update( complaint_params )
       format.js {
-        @complaint = Complaint.find(params[:id])
-        @complaint.update( complaint_params )
         if (params[:complaint].keys.length == 1 )
           step = 5
         else
@@ -140,21 +140,25 @@ class ComplaintsController < ApplicationController
           }
         end
       }
-      format.html {}
+      format.html {
+        redirect_to controller: :static_pages, action: :other_actions
+      }
     end
   end
   #
   def feedback
     if params[:token].present?
       @complaint = Complaint.find_by( token: params[:token] )
-      redirect_to complaints_url
+      if @complaint.nil?
+        redirect_to controller: :complaints, action: :index
+      end
     else
-      redirect_to complaints_url
+      redirect_to controller: :complaints, action: :index
     end
   end
   #
   def complaint_params
-    params.require(:complaint).permit(:name, :email, :follow_number, :platform_id, :standard_id, :country_id, :description, :video, :reason_id, :token)
+    params.require(:complaint).permit(:name, :email, :follow_number, :platform_id, :standard_id, :country_id, :description, :video, :reason_id, :token, :delay, :usability, :satisfaction, :useful)
   end
   #
   def get_token(retries = 0)

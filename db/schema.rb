@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_16_011852) do
+ActiveRecord::Schema.define(version: 2023_05_23_163808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,15 +29,6 @@ ActiveRecord::Schema.define(version: 2023_05_16_011852) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
   end
 
-  create_table "complaint_relations", force: :cascade do |t|
-    t.bigint "complaint_id", null: false
-    t.bigint "standard_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["complaint_id"], name: "index_complaint_relations_on_complaint_id"
-    t.index ["standard_id"], name: "index_complaint_relations_on_standard_id"
-  end
-
   create_table "complaints", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -49,9 +40,12 @@ ActiveRecord::Schema.define(version: 2023_05_16_011852) do
     t.string "video"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "reason"
     t.string "token"
     t.bigint "reason_id", null: false
+    t.integer "delay"
+    t.integer "usability"
+    t.integer "satisfaction"
+    t.integer "useful"
     t.index ["country_id"], name: "index_complaints_on_country_id"
     t.index ["platform_id"], name: "index_complaints_on_platform_id"
     t.index ["reason_id"], name: "index_complaints_on_reason_id"
@@ -121,8 +115,6 @@ ActiveRecord::Schema.define(version: 2023_05_16_011852) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "complaint_relations", "complaints"
-  add_foreign_key "complaint_relations", "standards"
   add_foreign_key "complaints", "countries"
   add_foreign_key "complaints", "platforms"
   add_foreign_key "complaints", "reasons"
