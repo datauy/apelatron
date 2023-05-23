@@ -1,7 +1,7 @@
-![Donde reciclo](src/assets/img/generico.png)
- # Donde Reciclo v4.0
-![](https://img.shields.io/badge/version-v3.4-blue) ![](https://img.shields.io/badge/build-ionic-blue) ![](https://img.shields.io/github/issues/datauy/DondeReciclo-3) ![](https://img.shields.io/github/license/datauy/DondeReciclo-3) ![](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Fdatauy%2FDondeReciclo-3)
-### Versión 4.0.6
+![Apelatron](src/assets/img/generico.png)
+ # Apelatrón v1.0
+![](https://img.shields.io/badge/version-v1.0.0-blue) ![](https://img.shields.io/github/issues/datauy/apelatron) ![](https://img.shields.io/github/license/datauy/apelatron) ![](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Fdatauy%2Fapelatron)
+### Versión 1.0.0
 ## Indice
 
 * [Introducción](#Introducción)
@@ -11,29 +11,26 @@
 
 ## Introducción
 
-¿Dónde Reciclo? es una herramienta web y una app para iOS y Android, sirve para encontrar contenedores de residuos reciclables en todo Uruguay y a aprender cómo clasificar mejor en casa.
+Apelatrón es un "Asistente de apelación" ¿Te borraron una publicación de una red social? ¿Usás las plataformas para compartir información y te suspendieron la cuenta? En internet también tenés derecho a expresarte con libertad. Si te eliminaron un contenido o te bloquearon la cuenta injustamente, podés apelar la decisión. Si no sabés cómo hacerlo, seguí los pasos de Apelatron para aprender cómo presentar la apelación en la plataforma.
 
-Esta basada en Ionic5, Angular usando las últimas tecnologías de CSS4 y HTML5 para generar una mejor experiencia de usuario y contenidos exportables a Android e IOS así como las nuevas Web Apps.
+Esta basada en Rails utilizando carga dinámica de contenidos para una mejor experiencia de usuario. A nivel de la administración permite la inclusión de pasos de manera flexible con templates que habilitan la funcionalidad que puede verse en la plataforma, lo que hace que la herramienta sea fácilmente escalable.
 
 
 <details>
 <summary>Origen</summary>
-En Uruguay existen muchos esfuerzos destinados a la recuperación de residuos sólidos para su revalorización, tratamiento o disposición final adecuados. Sin embargo la diversidad de programas y el desconocimiento de cada uno de ellos, redunda en que muchas personas crean que en Uruguay no se reciclan ni se recuperan los residuos, o que hacerlo es muy difícil.
-</details>
+La creciente intervención de unas pocas corporaciones internacionales en el libre flujo de información y comunicación en internet ha sido considerada como una amenaza para la libertad de expresión por Relatores de Libertad de Expresión de todo el mundo.
+
+Frente a este escenario, en el que las grandes plataformas avanzan con la remoción o desindexación de contenidos.
 
 <details>
 <summary>Objetivo</summary>
- Nuestro objetivo es unificar toda la información sobre todos los lugares, contenedores, dispositivos y programas para recibir residuos o materiales y envases reciclables.
+ El asistente Apelatron fue creado para asistir a los usuarios y usuarias de redes sociales a defender su derecho a expresarse en línea cuando entienden que ha habido una decisión de moderación injusta o ilegítima.
 </details>
 
 <details>
 <summary>Antecedentes</summary>
 
-*  La primera versión de esta herramienta, disponible en la web fue desarrollada y diseñada por [Agustín Kryger](https://twitter.com/agustinkry) y [Agustín Díaz](https://twitter.com/hiroagustin), en coordinación con DATA Uruguay, de forma voluntaria. Utilizando datos de la Intendencia de Montevideo para mostrar en qué lugares se podían depositar pilas, latas, plástico y vidrio.
-
-* En el año 2016, [CEMPRE](https://cempre.org.uy/)  (Compromiso Empresarial Para el Reciclaje)  y [DATA Uruguay](https://data.org.uy/) acordaron trabajar en conjunto para actualizar y ampliar la ambición de dicha herramienta, convirtiéndola además en una aplicación móvil y sumando información sobre clasificación en casa y formas de disposición de residuos.
-
-*  En 2020 se lanza una tercera versión de la herramienta v3.4.0, con más información sobre materiales, mejoras de diseño, interfaz y usabilidad y cambios en el sistema de gestión de la herramienta para permitir enviar reportes sobre contenedores a los distintos programas, así como permitirles a éstos gestionar y actualizar los puntos que se visualizan en la app.
+*  
 </details>
 
 ***
@@ -48,17 +45,7 @@ Son instrucciones que permitira tener una copia de poroyecto funcionando en un o
 
 ### Pre-requisitos:
 
-#### [Node.js](https://nodejs.org/en/)  >=10.19.0 <=12.15.0
-
-#### [Angular](https://angular.io/) 8.2.14
-
-    npm install -g @angular/cli
-
-#### [Ionic](https://ionicframework.com/) 0.0.0
-
-- **[Ionic](https://ionicframework.com/docs/cli)**
-
-    npm install -g @ionic/cli
+#### [Rails](https://nodejs.org/en/)  =6.1.7.3
 
 ### Instalación
 
@@ -69,10 +56,10 @@ Son instrucciones que permitira tener una copia de poroyecto funcionando en un o
     cd Nombre_Carpeta </br>
 
 - Clonar el proyecto del repositorio. </br>
-    git clone git@github.com:datauy/DondeReciclo-3.git
+    git clone git@github.com:datauy/apelatron.git
 
 - Entrar a la carpeta del proyecto final. </br>
-    cd DondeReciclo-3
+    cd apelatron
 
 - Instalar Ruby (se recomienda usar version manager https://rvm.io/) y Postgres
 - rvm use 2.6.3
@@ -113,9 +100,11 @@ Los datos utilizados en esta aplicación se encuentran disponibles para su reuti
 
  Es una organización de la sociedad civil que busca el fortalecimiento de comunidades y activismo social a traves de herramientas sociales para la participación y el uso de datos abiertos. [Conoce más](https://data.org.uy/)
 
+## Acerca de Observacom
+OBSERVACOM (Observatorio Latinoamericano de Regulación, Medios y Convergencia) es un think tank regional sin ánimo de lucro, profesional e independiente, especializado en regulación y políticas públicas relacionadas con los medios de comunicación, las telecomunicaciones, Internet y la libertad de expresión. [Conoce más](https://www.observacom.org/)
 ## Bitácora de cambios
 
-- [Changelog](http://soporte.data.org.uy/es/blog/dr-changelog)
+- [Changelog](http://soporte.data.org.uy/es/blog/apelatron-changelog)
 ## Contacto
 * Consultas sobre el proyecto en general (OBSERVACOM):
  contacto@observacom.org
