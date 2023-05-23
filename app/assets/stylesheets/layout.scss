@@ -50,6 +50,7 @@ h4 {
 }
 a {
   text-decoration: none;
+  color: #2D3473;
 }
 input {
   border: 1px solid #C6C6C6;
@@ -171,6 +172,7 @@ button {
   line-height: 20px;
   color: #F73B3B;
   margin: 0;
+  text-transform: none;
 }
 .error .error-inner div {
   font-family: 'Inter';

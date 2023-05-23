@@ -69,12 +69,12 @@
           <div class="suplement">Por si existen caminos legales locales.</div>
         </div>
         <div class="select-frame">
-          <%= form.select :reason_id, @reason_options, :prompt => "Motivo de moderación", :required => true %>
+          <%= form.select :reason_id, [], :prompt => "Motivo de moderación", :required => true %>
           <%= error_text({id: 'reason-error', message: 'Debe ingresar el motivo de la moderación'}) %>
           <div class="suplement">No todos los casos posibles se contemplan en esta herramienta</div>
         </div>
         <div class="select-frame">
-          <%= form.select :standard_id, @standard_options,  :prompt => "Tipo de moderación", :required => true %>
+          <%= form.select :standard_id, [],  :prompt => "Tipo de moderación", :required => true %>
           <%= error_text({id: 'standard-error', message: 'Debe ingresar un tipo de moderación'}) %>
           <div class="suplement">Seleccionar lo más similar al caso puntual.</div>
         </div>
@@ -86,6 +86,7 @@
 <% end %>
 <%= render partial: "warning" %>
 <script>
+  window.scrollTo({top: 0, behavior: "smooth"});
   //
   $('.btn-back').click((e) => {
     e.preventDefault();
@@ -102,5 +103,17 @@
   });
   $('select').on('change', (e) => {
     $('.error-text').addClass('hidden');
+  });
+  $('#complaint_platform_id').on('change', () => {
+    $.ajax({
+      type: "GET",
+      url: "?platform="+$('#complaint_platform_id').val()
+    });
+  });
+  $('#complaint_reason_id').on('change', () => {
+    $.ajax({
+      type: "GET",
+      url: "?platform="+$('#complaint_platform_id').val()+'&reason='+$('#complaint_reason_id').val()
+    });
   });
 </script>

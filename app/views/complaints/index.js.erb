@@ -1,11 +1,18 @@
 <% if @step.present? %>
-  console.log("VAAAAA STEP", <%= @step %>);
   <% if @step > 2 %>
     if (jQuery('#step-'+<%= @step %>).length == 0 ) {
       jQuery('#steps').append('<%= escape_javascript(render partial: "steps") %>');
     }
     slideTo(<%= @step %>, <%= (@step -1) %>);
   <% else %>
+    <% if @reason_options.present? %>
+      console.log("UPDATE COMPLAINTS <%= @reason_options.html_safe %>");
+      $('#complaint_reason_id').html( "<%= @reason_options.html_safe %>" );
+    <% end %>
+    <% if @standard_options.present? %>
+      console.log("UPDATE STANDARD <%= @standard_options.html_safe %>");
+      $('#complaint_standard_id').html( "<%= @standard_options.html_safe %>" );
+    <% end %>
     email = jQuery('#complaint_email').val();
     tyc = jQuery('#terms').is(':checked');
     var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;

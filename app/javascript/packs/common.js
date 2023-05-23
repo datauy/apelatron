@@ -20,7 +20,7 @@ window.slideTo = function(to_step, step_id) {
     transition = ['left-in', 'right-out'];
   }
   //var to_step = step_id + num;
-  console.log("Last STEP:", to_step);
+  console.log("Next STEP:", to_step);
   var container = jQuery('#steps');
   var next_step = jQuery('#step-' + to_step);
   container.removeClass('container-transition');

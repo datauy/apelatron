@@ -15,11 +15,11 @@ ActiveAdmin.register Step do
   #   permitted
   # end
   scope :all, default: true
-  Platform.all.each do |pl|
-    scope :"#{pl.name}" do |step|
-      step.where(platform: pl)
-    end
-  end
+  #Platform.all.each do |pl|
+  #  scope :"#{pl.name}" do |step|
+  #    step.where(platform: pl)
+  #  end
+  #end
 
   form do |f|
     f.inputs do

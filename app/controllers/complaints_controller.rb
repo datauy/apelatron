@@ -22,9 +22,34 @@ class ComplaintsController < ApplicationController
   def index
     respond_to do |format|
       format.js {
+        logger.info "SETP 2 JS!!!"
         @step = 2
-        if params[:step].present? && params[:step].to_i > 2
-          steps
+        if ( params[:platform].present? )
+          @reason_options = ''
+          reasons = Step.
+          joins(:reason).
+          select(:'reasons.id', :'reasons.name').
+          where(platform_id: params[:platform], step_number: 3).
+          pluck(:'reasons.id', :'reasons.name').
+          uniq
+          if reasons.length == 1
+            params[:reason] = reasons.first[0]
+          else
+            @reason_options = '<option value="">Motivo de moderación</option>'
+          end
+          @reason_options += reasons.map{|p| "<option value='#{p[0]}'>#{p[1]}</option>"}.join
+          logger.info "SETP 1 Reason Options #{@reason_options}"
+        end
+        if ( params[:reason].present? && params[:platform].present? )
+          @standard_options = "<option value=''>Tipo de moderación</option>"
+          @standard_options += Step.
+          joins(:standards).
+          select(:'standards.id', :'standards.name').
+          where(platform_id: params[:platform], reason_id: params[:reason], step_number: 3).
+          pluck(:'standards.id', :'standards.name').
+          uniq.
+          map{|p| "<option value='#{p[0]}'>#{p[1]}</option>"}.join
+          logger.info "SETP 1 Standard Options #{@standard_options}"
         end
       }
       format.html{
@@ -37,9 +62,7 @@ class ComplaintsController < ApplicationController
         end
         logger.info "\n Processing first steps #{ @step }"
         @platform_options = Platform.all.map { |p| [p.name, p.id] }
-        @standard_options = Standard.all.map { |p| [p.name, p.id] }
         @country_options = Country.all.map { |p| [p.name, p.id ] }
-        @reason_options = Reason.all.map { |p| [p.name, p.id ] }
       }
     end
   end
@@ -84,7 +107,7 @@ class ComplaintsController < ApplicationController
         else
           @step = 2
           @message = {
-            title: 'Error creando la apelación, por favor complete todos los campos.',
+            title: 'Por favor complete todos los campos.',
             message: 'Si el problema persiste contacte a <a href="mailto:soporte@data.org.uy">soporte@data.org.uy</a>'.html_safe
           }
         end
