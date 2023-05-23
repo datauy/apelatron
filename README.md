@@ -21,7 +21,7 @@ Esta basada en Rails utilizando carga dinámica de contenidos para una mejor exp
 La creciente intervención de unas pocas corporaciones internacionales en el libre flujo de información y comunicación en internet ha sido considerada como una amenaza para la libertad de expresión por Relatores de Libertad de Expresión de todo el mundo.
 
 Frente a este escenario, en el que las grandes plataformas avanzan con la remoción o desindexación de contenidos.
-
+</details>
 <details>
 <summary>Objetivo</summary>
  El asistente Apelatron fue creado para asistir a los usuarios y usuarias de redes sociales a defender su derecho a expresarse en línea cuando entienden que ha habido una decisión de moderación injusta o ilegítima.
