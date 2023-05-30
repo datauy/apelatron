@@ -1,0 +1,122 @@
+<body>
+  <header><%= image_tag 'apelatron-branding.svg', alt:"Ilustración de Apelatrón" %><%= image_tag 'apelatron-texto.svg', alt:"Texto: Apelatrón" %></header>
+  <h1>Queremos saber si tuviste novedades de tu apelación</h1>
+  <hr>
+  <p>
+    Hola!<br>
+    Como te habíamos anticipado, nos ponemos en contacto para saber si, después de haber presentado tu solicitud de revisión o apelación, recibiste alguna respuesta por parte de <%= @complaint.platform.name %>. y si, en el caso de haber recibido respuesta, cómo fue la resolución de tu caso.
+  </p>
+  <div>
+    <h2>El caso</h2>
+    <ul class="info">
+      <li>Realizada el <%= @complaint.created_at %></li>
+      <li>Ante: <%= @complaint.platform.name %></li>
+      <li>Motivo/s de moderación: <%= @complaint.reason.name %>.</li>
+      <li>Tipo de moderación: <%= @complaint.standard.name %></li>
+    </ul>
+    <p>
+      Si aún no has ingresado tu número de seguimiento o quieres revisar la información suministrada por apelatrón
+    </p>
+    <%= link_to "Ingresa aquí ", {controller: :complaints, action: :steps, step: 5, platform: @complaint.platform_id, reason: @complaint.reason_id, standard:@complaint.standard_id, token: @complaint.token}, class: 'btn success'%>
+  </div>
+  <div>
+    <h2>¿POR QUÉ ES IMPORTANTE EL SEGUIMIENTO?</h2>
+    <p>
+      El seguimiento es necesario para saber si las plataformas están cumpliendo con atender y resolver los reclamos de sus usuarios en cuanto a las decisiones que toman y que tienen un impacto concreto en su derecho de libertad de expresión.
+    </p>
+    <p>
+      <%= link_to"Tuve éxito total o parcial", {controller: :complaints, action: :feedback, token: @complaint.token, response: 1}, class: 'btn' %>
+    </p>
+    <p>
+      <%= link_to"Recibí respuesta negativa", {controller: :complaints, action: :feedback, token: @complaint.token, response: 0}, class: 'btn' %>
+    </p>
+    <p>
+      <%= link_to"Todavía no recibí respuesta", {controller: :complaints, action: :feedback, token: @complaint.token, response: nil}, class: 'btn' %>
+    </p>
+  </div>
+  <div>
+    <p>
+      No olvides seguirnos en nuestras redes y compartir la herramienta!
+      (botones de compartir en redes?)
+    </p>
+    <p>Si recibiste este correo por equivocación podes ignorarlo</p>
+  </div>
+  <footer>
+    <%= image_tag 'apelatron-gracias.svg', alt:"Ilustración de Apelatrón" %>
+    <div>
+      <span>@observacom - @datauy</span>
+    </div>
+  </footer>
+</body>
+<style>
+  body {
+    padding: 32px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #2C2C2C;
+    box-sizing: border-box;
+  }
+  header {
+    display: flex;
+    background: linear-gradient(255.73deg, #E4F4FF 13.91%, #DFEAFF 98.08%);
+  }
+  div {
+    box-sizing: border-box;
+    margin: 24px 0;
+  }
+  h1 {
+    margin: 24px 0 16px 0;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    color: #2D3473;
+  }
+  h2 {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: #2D3473;
+    margin-top: 36px;
+  }
+  hr {
+    display: flex;
+    background-color: #2a92e8;
+    font-weight: 800;
+    position: relative;
+    margin: 0;
+    height: 2px;
+    width: 40px;
+    border: none;
+  }
+  a.btn {
+    background: #3FA1EB;
+    border-radius: 4px;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 48px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 48px;
+    margin: 12px 0;
+  }
+  footer {
+    text-align: center;
+    margin-top: 24px;
+  }
+  footer div {
+    background: #F5F5F5;
+    border-radius: 2px;
+    height: 64px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #878787;
+    padding: 24px 0;
+    margin-top: 24px;
+  }
+</style>

@@ -29,4 +29,8 @@ class Complaint < ApplicationRecord
     'No me resultó útil en absoluto',
     'Aún no puedo contestar la pregunta'
   ]
+
+  after_create do
+    AdminMailer.with(complaint: self).new_complaint.deliver
+  end
 end

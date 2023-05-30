@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_23_163808) do
+ActiveRecord::Schema.define(version: 2023_05_30_041443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2023_05_23_163808) do
     t.integer "usability"
     t.integer "satisfaction"
     t.integer "useful"
+    t.boolean "success"
     t.index ["country_id"], name: "index_complaints_on_country_id"
     t.index ["platform_id"], name: "index_complaints_on_platform_id"
     t.index ["reason_id"], name: "index_complaints_on_reason_id"

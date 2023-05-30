@@ -56,6 +56,9 @@ class ComplaintsController < ApplicationController
         if params[:token]
           @step = 2
           @complaint = Complaint.find_by(token: params[:token])
+          if @complaint.nil?
+            redirect_to controller: :complaints, action: :index
+          end
         else
           @step = 1
           @complaint = Complaint.new
@@ -152,13 +155,17 @@ class ComplaintsController < ApplicationController
       if @complaint.nil?
         redirect_to controller: :complaints, action: :index
       end
+      if params[:response].present?
+        @complaint.success = params[:response]
+        @complaint.save
+      end
     else
       redirect_to controller: :complaints, action: :index
     end
   end
   #
   def complaint_params
-    params.require(:complaint).permit(:name, :email, :follow_number, :platform_id, :standard_id, :country_id, :description, :video, :reason_id, :token, :delay, :usability, :satisfaction, :useful)
+    params.require(:complaint).permit(:name, :email, :follow_number, :platform_id, :standard_id, :country_id, :description, :video, :reason_id, :token, :delay, :usability, :satisfaction, :useful, :success)
   end
   #
   def get_token(retries = 0)

@@ -117,4 +117,18 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+  config.action_mailer.delivery_method = :smtp
+  # SMTP settings
+  config.action_mailer.smtp_settings = {
+    :address              => "mail.data.org.uy",
+    :port                 =>  587,
+    :user_name            => Rails.application.credentials.mail[:user],
+    :password             => Rails.application.credentials.mail[:password],
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
+  config.public_file_server.headers = {
+    'Cache-Control' => 'public, s-maxage=31536000, maxage=15552000',
+    'Expires' => "#{1.year.from_now.to_formatted_s(:rfc822)}"
+  }
 end

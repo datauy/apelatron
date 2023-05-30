@@ -7,8 +7,13 @@
 <div class="main-content">
   <h3>Bajada pendiente</h3>
   <h1>Respuesta registrada</h1>
+  <hr>
   <p>Si podés, contanos cómo fue el proceso de apelación en la plataforma.</p>
   <%= form_with model: @complaint do |form| %>
+  <div class="select-frame">
+    <%= form.select :success, options_for_select([["Aún no me han respondido", nil], ["Tuve éxito total o parcial", 1], ["Recibí respuesta negativa", 0]], @complaint.success.nil? ? nil : (@complaint.success ? 1 : 0)), class: (@complaint.errors.messages.key?(:success) ? "error" : ""), :prompt => "Cómo fue la respuesta de la plataforma?" %>
+    <div class="suplement">Por favor especifica si la respuesta fue satisfctoria o no.</div>
+  </div>
   <div class="select-frame">
     <%= form.select :delay, options_for_select(Complaint.delays.map {|key, value| [key.titleize, Complaint.delays.key(value)]}, @complaint.delay), class: (@complaint.errors.messages.key?(:platform) ? "error" : ""), :prompt => "¿Cuánto tardó aproximadamente?" %>
     <div class="suplement">Por favor especifica la cantidad de días que demoraron en responderte.</div>

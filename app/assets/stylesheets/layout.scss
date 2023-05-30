@@ -71,6 +71,16 @@ button {
     font-size: 12px;
     line-height: 14px;
 }
+hr {
+  display: flex;
+  background-color: rgb(42, 146, 232);
+  font-weight: 800;
+  position: relative;
+  margin: 0;
+  height: 2px;
+  width: 40px !important;
+  border: none;
+}
 .select-frame {
     display: flex;
     flex-direction: column;
