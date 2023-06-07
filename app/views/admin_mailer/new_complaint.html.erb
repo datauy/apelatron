@@ -1,5 +1,5 @@
 <body>
-  <header><%= image_tag 'apelatron-branding.svg', alt:"Ilustración de Apelatrón" %><%= image_tag 'apelatron-texto.svg', alt:"Texto: Apelatrón" %></header>
+  <header><img src="http://<%= Rails.application.routes.default_url_options[:host] %>/apelatron-branding.svg" alt:"Ilustración de Apelatrón"><img src='http://<%= Rails.application.routes.default_url_options[:host] %>/apelatron-texto.svg' alt:"Texto: Apelatrón"></header>
   <h1>Queremos saber si tuviste novedades de tu apelación</h1>
   <hr>
   <p>
@@ -34,7 +34,7 @@
     <p>Si recibiste este correo por equivocación podes ignorarlo</p>
   </div>
   <footer>
-    <%= image_tag 'apelatron-gracias.svg', alt:"Ilustración de Apelatrón" %>
+    <img src='http://<%= Rails.application.routes.default_url_options[:host] %>/apelatron-gracias.svg', alt:"Ilustración de Apelatrón">
     <div>
       <span>@observacom - @datauy</span>
     </div>

@@ -17,7 +17,7 @@
       ¿Te borraron una publicación de una red social? ¿Usás las plataformas para compartir información y te suspendieron la cuenta? En internet también tenés derecho a expresarte con libertad. Si te eliminaron un contenido o te bloquearon la cuenta injustamente, podés apelar la decisión. Si no sabés cómo hacerlo, seguí los pasos de Apelatron para aprender cómo presentar la apelación en la plataforma.
     </p>
   </div>
-  <%= link_to image_tag('arrowR.png', alt: "Flecha continuar") + "Quiero comenzar con el asistente", '#', class: "mainButton", id: "start" %>
+  <%= link_to image_tag('arrowR.png', alt: "Flecha continuar") + "Quiero comenzar con el asistente", '#', class: "btn mainButton", id: "start" %>
 </div>
 
 <div class="overlay hidden">
@@ -52,7 +52,7 @@
         </li>
       </ul>
     </div>
-    <%= link_to image_tag('tick.png', alt: "tick") + "Entendido", {:controller => :complaints, :action => :index}, class: "mainButton" %>
+    <%= link_to image_tag('tick.png', alt: "tick") + "Entendido", {:controller => :complaints, :action => :index}, class: "btn mainButton" %>
   </div>
 </div>
 <script>

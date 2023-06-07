@@ -1,92 +1,161 @@
 <footer>
-    <div class="main-content">
-        <div id="text-module">
-            <div class="group column">
-                <h2>Sobre el proyecto </h2>
-                <div id="info-group">
-                    <p>
-                        Información general del proyecto, que debería ser lo mismo que la descripción breve de “Sobre el
-                        Proyecto,
-                        que es a donde lleva el siguiente enlace.
-                    </p>
-                    <a href="about.html" id="more-info">Más información ></a>
-                </div>
+  <div class="content">
+    <div class="module">
+      <div class="inline"><i class="fa-solid fa-share-from-square"></i><h3 id="share">Compartí este proyecto</h3></div>
+      <p>Si te fue útil o le puede ser útil a alguien más, tu ayuda en difusión hace una enorme diferencia. ¡Gracias!</p>
+      <% share_msg = "Apelatrón es un asistente para apelar en plataformas de redes sociales si te eliminaron un contenido o te bloquearon la cuenta injustamente." %>
+      <div class="inline">
+        <a class="dropdown-item" href="https://mastodonshare.com/?text=<%= share_msg %>&url=<%= request.base_url %>" target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+        <a class="dropdown-item" href="https://twitter.com/intent/tweet?text=<%= share_msg %>&amp;url=<%= request.base_url %>&amp;via=Apelatrón" onclick="if(!document.getElementById('td_social_networks_buttons')){window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;}">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+        <a class="dropdown-item" href="https://www.facebook.com/sharer.php?u=<%= request.base_url %>" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a class="dropdown-item" target="_blank" href="https://api.whatsapp.com/send?text=<%= share_msg %> <%= request.base_url %>">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a class="dropdown-item" href="https://www.linkedin.com/sharing/share-offsite/?url=<%= request.base_url %>" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a class="dropdown-item" href="mailto:someone@example.com?Subject=Apelatrón: Asitente de apelación&amp;body=<%= share_msg %> <%= request.base_url %>">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+    <div class="module">
+        <div class="group column">
+            <h2>Sobre el proyecto </h2>
+            <div id="info-group">
+                <p>
+                    Información general del proyecto, que debería ser lo mismo que la descripción breve de “Sobre el
+                    Proyecto,
+                    que es a donde lleva el siguiente enlace.
+                </p>
+                <a href="/sobre-el-proyecto" id="more-info">Más información ></a>
             </div>
-            <div id="close-data">
+        </div>
+        <div id="open-data" class="group">
+            <div id="open-title" class="toggle-data">
                 <h2>Datos abiertos y software libre </h2>
                 <%= image_tag("arrow-down.png", alt:"Imagen cambiar") %>
             </div>
-            <div id="open-data" class="group footer-toggle hidden">
-                <div id="open-title">
-                    <h2>Datos abiertos y software libre </h2>
-                    <%= image_tag("arrow-up.png", alt:"Imagen cambiar") %>
-                </div>
-                <p>
-                    Los datos utilizados en esta aplicación se encuentran disponibles para su reutilización como
-                    datos
-                    abiertos y el código del software es libre bajo licencia GPLv3.
-                </p>
-                <a href="https://catalogodatos.gub.uy/dataset/a-tu-nombre-udelar" class="btn btn-transparent">
-                    Datos abiertos en Catálogo Nacional
-                </a>
-                <a href="http://github.com/datauy/nomenclatorUDELAR/" class="btn btn-transparent">
-                    Código de la aplicación en GitHub
-                </a>
-            </div>
-            <div id="ask-frame">
-                <a href="http://soporte.data.org.uy/es/customer/create-ticket/" class="btn btn-transparent">
-                    <%= image_tag("support.png", alt:"Imagen cambiar") %>
-                    ¿Problemas, dudas?
-                </a>
-            </div>
-            <a id="support-button" href='http://soporte.data.org.uy/es/' >Escribí a Soporte</a>
-        </div>
-        <div id="module" class="group column center">
-          <h2>¿Quiénes somos?</h2>
-          <div id="logos-frame">
-            <a href="https://data.org.uy">
-              <%= image_tag("data.png", alt:"Imagen cambiar") %>
+            <p>
+                Los datos utilizados en esta aplicación se encuentran disponibles para su reutilización como
+                datos
+                abiertos y el código del software es libre bajo licencia GPLv3.
+            </p>
+            <a href="https://catalogodatos.gub.uy/organization/data" class="support-button toggle-content" target="_blank">
+                Datos abiertos en Catálogo Nacional
+                <i class="fa-solid fa-database"></i>
             </a>
-            <a href="https://observacom.org">
-              <%= image_tag("observacom.png", alt:"Imagen cambiar") %>
+            <a href="https://github.com/datauy/apelatron" class="support-button toggle-content" target="_blank">
+                Código de la aplicación en GitHub
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </div>
+        <div id="ask-frame">
+            <a href="http://soporte.data.org.uy/es/customer/create-ticket/" class="btn btn-transparent" target="_blank">
+                <%= image_tag("support.png", alt:"Imagen cambiar") %>
+                ¿Problemas, dudas?
+            </a>
+        </div>
+        <a class="support-button" href='mailto:soporte@data.org.uy' >Escribí a Soporte</a>
+    </div>
+    <div class="module" class="group column center">
+      <div id="we-are-header" class="toggle-data">
+        <h2>¿Quiénes somos?</h2>
+        <%= image_tag("arrow-down.png", alt:"Flecha abrir/cerrar") %>
+      </div>
+      <div class="logos-frame">
+        <a href="https://data.org.uy" target="_blank">
+          <%= image_tag("data.png", alt:"DATA Uruguay") %>
+        </a>
+        <div class="toggle-content">
+          <p>
+            Data Uruguay es una organización de la sociedad civil que trabaja en temas de Gobierno Abierto, Datos Abiertos, Tecnología Cívica, Transparencia, Acceso a la Información y co-creación de política pública. Tiene como misión contribuir a una sociedad más justa a través del uso de datos abiertos y tecnología cívica, en base a tres pilares: Herramientas, Comunidad y Activismo.
+          </p>
+          <div class="inline">
+            <a class="social-link" href="https://mastodon.uy/@datauy" target="_blank">
+              <i class="fa-brands fa-mastodon"></i>
+            </a>
+            <a class="social-link" href="https://twitter.com/datauy" target="_blank">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a class="social-link"  href="https://www.instagram.com/datauy" target="_blank">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a class="social-link" href="https://www.facebook.com/DATAuruguay" target="_blank">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a class="social-link" href="https://uy.linkedin.com/company/datauy" target="_blank">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <!--<a class="social-link" href="https://uy.linkedin.com/company/datauy" target="_blank">
+              <i class="fa-brands fa-meetup"></i>
+            </a>-->
+            <a class="social-link" href="https://github.com/datauy" target="_blank">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a class="social-link" href="mailto:contacto@data.org.uy?Subject=Consulta sobre Apelatrón">
+              <i class="fa-solid fa-envelope"></i>
             </a>
           </div>
         </div>
-        <div id="module">
-          <h2>Con el apoyo de:</h2>
-          <div id="logos-frame">
-              <%= image_tag("logo-temp.png", alt:"Imagen cambiar") %>
-              <%= image_tag("logo-temp.png", alt:"Imagen cambiar") %>
+        <a href="https://observacom.org" target="_blank">
+          <%= image_tag("observacom.png", alt:"Observacom") %>
+        </a>
+        <div class="toggle-content">
+          <p>
+            OBSERVACOM (Observatorio Latinoamericano de Regulación, Medios y Convergencia) es un think tank regional sin ánimo de lucro, profesional e independiente, especializado en regulación y políticas públicas relacionadas con los medios de comunicación, las telecomunicaciones, Internet y la libertad de expresión. Abordamos estos temas desde una perspectiva de derechos y priorizamos los aspectos relacionados con el acceso, la diversidad y el pluralismo.
+          </p>
+          <div class="inline">
+            <a class="social-link" href="https://twitter.com/Observacom" target="_blank">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a class="social-link"  href="https://www.instagram.com/observacomlac/" target="_blank">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a class="social-link" href="https://www.facebook.com/observacom/?locale=es_LA" target="_blank">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a class="social-link" href="mailto:contacto@observacom.org?Subject=Consulta sobre Apelatrón">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
           </div>
         </div>
-        <div id="module">
-          <h2>Conocé otros proyectos de DATA:</h2>
-          <div id="logos-frame">
-              <%= image_tag("atuservicio.png", alt:"Imagen cambiar") %>
-              <%= image_tag("dondereciclo.png", alt:"Imagen cambiar") %>
-              <%= image_tag("datysoc.png", alt:"Imagen cambiar") %>
-          </div>
-          <div id="data-projects" class="slides"></div>
-          <div id="slider-controls"></div>
-        </div>
+      </div>
+      <h2>Con el apoyo de:</h2>
+      <div class="logos-frame frida">
+          <%= image_tag("frida.svg", alt:"Frida") %>
+      </div>
     </div>
-    <hr>
-    <div id="credits">
-        <%= image_tag("Shape.png", alt:"Imagen cambiar") %>
-        <%= image_tag("cc.png", alt:"Imagen cambiar") %>
-        <div class="group">
-            <p>El contenido original de este sitio, está bajo licencia Creative Commons Atribución 4.0
-                Internacional. Por otras atribuciones ver sobre el proyecto.</p>
-        </div>
+  </div>
+  <div class="carousel">
+    <h3>Conocé otros proyectos de DATA:</h3>
+    <div class="logos-frame">
+      <%= image_tag("atuservicio.png", alt:"Imagen cambiar") %>
+      <%= image_tag("dondereciclo.png", alt:"Imagen cambiar") %>
+      <%= image_tag("datysoc.png", alt:"Imagen cambiar") %>
     </div>
+  </div>
+  <hr>
+  <div id="credits">
+      <%= image_tag("Shape.png", alt:"Imagen cambiar") %>
+      <%= image_tag("cc.png", alt:"Imagen cambiar") %>
+      <div class="group">
+          <p>El contenido original de este sitio, está bajo licencia Creative Commons Atribución 4.0
+              Internacional. Por otras atribuciones ver sobre el proyecto.</p>
+      </div>
+  </div>
 </footer>
 <script>
-  jQuery('#close-data').click(() => {
-    jQuery('#close-data').addClass('hidden');
-    jQuery('#open-data').removeClass('hidden');
+  jQuery('#open-title').click(() => {
+    jQuery('#open-title').parent().toggleClass('active');
   });
-  jQuery('#open-data').click(() => {
-    jQuery('#open-data').addClass('hidden');
-    jQuery('#close-data').removeClass('hidden');
+  jQuery('#we-are-header').click(() => {
+    jQuery('#we-are-header').parent().toggleClass('active');
   });
 </script>

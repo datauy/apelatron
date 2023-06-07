@@ -23,7 +23,7 @@
             <%= form.text_field :follow_number, placeholder: "Número de seguimiento" %>
             <%= error_text({id: 'email-error', message: 'El correo no parece ser correcto'}) %>
             <div class="suplement">Debería ser suministrado por la plataforma al ingreso de la apelación.</div>
-            <%= form.submit "Siguiente", id: 'submit-5', class: 'mainButton' %>
+            <%= form.submit "Siguiente", id: 'submit-5', class: 'btn mainButton' %>
           </div>
           <% end %>
 
@@ -38,11 +38,11 @@
             });
           </script>
         <% else %>
-          <%= link_to "Siguiente", {:controller => :complaints, :action => :steps, step: (@step + 1), platform: @platform.id, reason: @reason.id, standard: @standard.id, token: params[:token]}, class: "mainButton", id: "submit-#{@step}" , remote:true %>
+          <%= link_to "Siguiente", {:controller => :complaints, :action => :steps, step: (@step + 1), platform: @platform.id, reason: @reason.id, standard: @standard.id, token: params[:token]}, class: "btn mainButton", id: "submit-#{@step}" , remote:true %>
         <% end %>
       <% else %>
           <p>Parece que no hemos encontrado lo que estás buscando por favor contacta a contacto@data.org.uy</p>
-          <%= link_to "Volver al inicio", '/', class: "mainButton" %>
+          <%= link_to "Volver al inicio", '/', class: "btn mainButton" %>
       <% end %>
     </div>
   </div>

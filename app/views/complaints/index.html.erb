@@ -33,12 +33,12 @@
         </div>
         <div id="blank"></div>
         <div class="relevant">
-            <div id="answerT">
+            <div class="answerT">
                 <h4><%= image_tag "lamp.png", alt: "" %>¿Para qué necesitan mi correo?</h4>
             </div>
             <p>Entendemos que tu dirección de correo electrónico es un dato personal y por eso queremos explicarte que te lo pedimos con el único objetivo de ponernos en contacto luego de que presentes la apelación para realizar un seguimiento de tu caso. Respetamos tu privacidad por lo que no vamos a compartir tus datos con terceros.</p>
         </div>
-        <%= link_to "Empezar con el proceso", {:controller => :complaints, :action => :index, step: 1}, class: "mainButton", remote:true %>
+        <%= link_to "Empezar con el proceso", {:controller => :complaints, :action => :index, step: 1}, class: "btn mainButton", remote:true %>
       </div>
     </div>
   </div>
@@ -78,7 +78,7 @@
           <%= error_text({id: 'standard-error', message: 'Debe ingresar un tipo de moderación'}) %>
           <div class="suplement">Seleccionar lo más similar al caso puntual.</div>
         </div>
-        <%= form.submit "Siguiente", class: 'mainButton' %>
+        <%= form.submit "Siguiente", class: 'btn mainButton' %>
       </div>
     </div>
   </div>

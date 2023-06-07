@@ -30,6 +30,6 @@
     <%= form.select :useful, options_for_select(Complaint.usefuls.map {|key, value| [key.titleize, Complaint.usefuls.key(value)]}, @complaint.useful), class: (@complaint.errors.messages.key?(:useful) ? "error" : ""), :prompt => "¿Te resultó útil Apelatrón?" %>
     <div class="suplement">Por favor especifica la cantidad de días que demoraron en responderte.</div>
   </div>
-  <%= form.submit "Enviar", class: 'mainButton' %>
+  <%= form.submit "Enviar", class: 'btn mainButton' %>
   <% end %>
 </div>
