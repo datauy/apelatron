@@ -1,12 +1,12 @@
 <div class="overlay hidden">
   <div class="main-content">
-    <h3><span>Estás por dirijirte al formulario de apelación</span><i class="fa-solid fa-xmark"></i></h3>
-    <p>Puedes ingresar una nueva apelación o modificar la apelación que has realizado, por favor indica la opción correcta</p>
+    <h3><span>Estás por dirigirte al formulario de consulta</span><i class="fa-solid fa-xmark"></i></h3>
+    <p>Puedes ingresar una nueva consulta o modificar la consulta que has realizado, por favor indica la opción correcta</p>
     <div class="actions">
       <% if params[:token] %>
-        <a href="/nueva-apelacion?token=<%= params[:token] %>" class="btn mainButton back-confirm">Realizar cambios en la apelación</a>
+        <a href="/nueva-apelacion?token=<%= params[:token] %>" class="btn mainButton back-confirm">Realizar cambios en la consulta</a>
       <% end %>
-      <a href="/nueva-apelacion" class="btn mainButton back-confirm">Realizar una nueva apelación</a>
+      <a href="/nueva-apelacion" class="btn mainButton back-confirm">Realizar una nueva consulta</a>
       <a href="#" class="back-cancel"><h3>Volver al paso 3</h3></a>
     </div>
   </div>

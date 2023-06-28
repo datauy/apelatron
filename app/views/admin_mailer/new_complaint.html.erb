@@ -4,7 +4,7 @@
   <hr>
   <p>
     Hola!<br>
-    Hemos recibido la información de tu apelación frente a <%= @complaint.platform.name %>. Te dejamos los datos para que puedas hacer el seguimiento de tu apelación, no olvides compartir la respuesta que has recibido y cómo ha sido tu experiencia utilizando la información de la plataforma y apelatrón.
+    Hemos recibido la información de tu apelación frente a <%= @complaint.platform.name %>. Te dejamos los datos para que puedas hacer el seguimiento de tu apelación, no olvides compartir la respuesta que has recibido y cómo ha sido tu experiencia utilizando la información de la plataforma y <b>Apelatrón</b>.
   </p>
   <div>
     <h2>El caso</h2>
@@ -15,7 +15,7 @@
       <li>Tipo de moderación: <%= @complaint.standard.name %></li>
     </ul>
     <p>
-      Si aún no has ingresado tu número de seguimiento o quieres revisar la información suministrada por apelatrón
+      Si aún no has ingresado tu número de seguimiento o quieres revisar la información suministrada por <b>Apelatrón</b>
     </p>
     <%= link_to "Ingresa aquí ", {controller: :complaints, action: :steps, step: 5, platform: @complaint.platform_id, reason: @complaint.reason_id, standard:@complaint.standard_id, token: @complaint.token}, class: 'btn success'%>
   </div>

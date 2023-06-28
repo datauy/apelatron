@@ -15,7 +15,7 @@
       <li>Tipo de moderación: <%= @complaint.standard.name %></li>
     </ul>
     <p>
-      Si aún no has ingresado tu número de seguimiento o quieres revisar la información suministrada por apelatrón
+      Si aún no has ingresado tu número de seguimiento o quieres revisar la información suministrada por <b>Apelatrón</b>
     </p>
     <%= link_to "Ingresa aquí ", {controller: :complaints, action: :steps, step: 5, platform: @complaint.platform_id, reason: @complaint.reason_id, standard:@complaint.standard_id, token: @complaint.token}, class: 'btn success'%>
   </div>

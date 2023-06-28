@@ -1,5 +1,5 @@
-<% content_for(:html_title) { 'Apelatrón - Nueva apelación' } %>
-<% content_for(:header_title) { '<h1>Nueva apelación</h1>'.html_safe } %>
+<% content_for(:html_title) { 'Apelatrón - Nueva consulta' } %>
+<% content_for(:header_title) { '<h1>Nueva consulta</h1>'.html_safe } %>
 <% content_for(:header_left) { link_to '<', '#', class: 'btn-back' } %>
 <%= form_with model: @complaint, local: false do |form| %>
 <div id="steps" class='container-transition'>
@@ -60,7 +60,7 @@
           Seleccioná las opciones que correspondan a tu caso para continuar con la asistencia.
         </p>
         <div class="select-frame">
-          <%= form.select :platform_id, @platform_options, class: (@complaint.errors.messages.key?(:platform) ? "error" : ""), :prompt => "Red social", :required => true %>
+          <%= form.select :platform_id, @platform_options, class: (@complaint.errors.messages.key?(:platform) ? "error" : ""), :prompt => "Plataforma", :required => true %>
           <%= error_text({id: 'platform-error', message: 'Debe ingresar una plataforma'}) %>
         </div>
         <div class="select-frame">

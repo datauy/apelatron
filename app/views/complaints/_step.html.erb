@@ -12,7 +12,7 @@
 <% copy_id = "copy-#{step.step_number}-#{step.order.present? ? step.order : 0}" %>
   <div class="relevant">
     <div class="answerT">
-      <h3><%= image_tag("lamp.png", alt: "Lamparita") %>Plantilla de texto para tu respuesta</h3>
+      <h3><%= image_tag("lamp.png", alt: "Lamparita") %>Plantilla de texto sugerida para tu respuesta</h3>
     </div>
     <p><%= step.template.html_safe %></p>
     <input id='<%= copy_id %>' type="hidden" value="<%= step.template.html_safe %>">

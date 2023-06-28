@@ -64,8 +64,8 @@ class ComplaintsController < ApplicationController
           @complaint = Complaint.new
         end
         logger.info "\n Processing first steps #{ @step }"
-        @platform_options = Platform.all.map { |p| [p.name, p.id] }
-        @country_options = Country.all.map { |p| [p.name, p.id ] }
+        @platform_options = Platform.all.order(:name).map { |p| [p.name, p.id] }
+        @country_options = Country.all.order(:name).map { |p| [p.name, p.id ] }
       }
     end
   end
