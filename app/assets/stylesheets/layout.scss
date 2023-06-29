@@ -324,6 +324,27 @@ p {
   animation-duration: 2s;
   animation-name: container;
 }
+.answerT {
+  padding: 8px 0;
+  h3 {
+    margin: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #2C2C2C;
+    display: flex;
+    gap: 8px;
+    letter-spacing: inherit;
+    text-transform: none;
+    flex-direction: row;
+    img {
+      width: 12px;
+      height: 16px;
+    }
+  }
+}
 @keyframes container {
   from {
     flex: 0 0 200%;

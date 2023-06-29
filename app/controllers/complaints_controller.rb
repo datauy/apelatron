@@ -59,6 +59,16 @@ class ComplaintsController < ApplicationController
           if @complaint.nil?
             redirect_to controller: :complaints, action: :index
           end
+          @reason_options = Step.
+          joins(:reason).
+          select(:'reasons.id', :'reasons.name').
+          where(platform_id: @complaint.platform_id, step_number: 3).
+          uniq.map { |p| [p.name, p.id] }
+          @standard_options = Step.
+          joins(:standards).
+          select(:'standards.id', :'standards.name').
+          where(platform_id: @complaint.platform_id, reason_id: @complaint.reason_id, step_number: 3).
+          uniq.map { |p| [p.name, p.id] }
         else
           @step = 1
           @complaint = Complaint.new

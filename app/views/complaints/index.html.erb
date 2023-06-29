@@ -53,7 +53,7 @@
             Paso 02
         </h4>
         <h2 id="page-title">
-            Que pasó?
+            ¿Qué pasó?
         </h2>
         <hr>
         <p>
@@ -69,16 +69,16 @@
           <div class="suplement">Por si existen caminos legales locales.</div>
         </div>
         <div class="select-frame">
-          <%= form.select :reason_id, [], :prompt => "Motivo de moderación", :required => true %>
+          <%= form.select :reason_id, @reason_options.present? ? @reason_options : [], :prompt => "Motivo de moderación", :required => true, selected: @complaint.reason_id.present? ? @complaint.reason_id : '' %>
           <%= error_text({id: 'reason-error', message: 'Debe ingresar el motivo de la moderación'}) %>
           <div class="suplement">No todos los casos posibles se contemplan en esta herramienta</div>
         </div>
         <div class="select-frame">
-          <%= form.select :standard_id, [],  :prompt => "Tipo de moderación", :required => true %>
+          <%= form.select :standard_id, @standard_options.present? ? @standard_options : [], :prompt => "Tipo de moderación", :required => true, selected: @complaint.standard_id.present? ? @complaint.standard_id : '' %>
           <%= error_text({id: 'standard-error', message: 'Debe ingresar un tipo de moderación'}) %>
           <div class="suplement">Seleccionar lo más similar al caso puntual.</div>
         </div>
-        <%= form.submit "Siguiente", class: 'btn mainButton' %>
+        <%= form.submit "Siguiente", class: 'btn mainButton', id: 'submit-complaint' %>
       </div>
     </div>
   </div>
@@ -88,6 +88,10 @@
 <script>
   window.scrollTo({top: 0, behavior: "smooth"});
   //
+  $('#submit-complaint').click((e) => {
+    $(e.target).attr('disabled','disabled');
+    console.log(e.target);
+  });
   $('.btn-back').click((e) => {
     e.preventDefault();
     var step_id = parseInt(jQuery('.step:visible')[0].id.split('-')[1]);
