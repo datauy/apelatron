@@ -218,6 +218,10 @@ p {
   z-index: 10;
   padding: 30px;
 }
+#loading img {
+  margin: calc(50vh - 30px) calc(50vw - 30px);
+  width: 60px;
+}
 .overlay .main-content {
   background: white;
   box-shadow: 0px 0px 10px 7px rgba(0, 0, 0, 0.2);

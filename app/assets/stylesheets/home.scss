@@ -26,9 +26,11 @@
   }
 
   .logo {
-      display: flex;
+    display: flex;
   }
-
+  #logo img {
+    width: 245px;
+  }
   .mainText {
       display: flex;
       flex-direction: column;

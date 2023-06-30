@@ -2,7 +2,7 @@
   <div id="content-header">
     <div id="elipse"></div>
     <div id="logo">
-        <%= image_tag("Completo.png", alt:"Robot Apelatrón") %>
+        <%= image_tag("logo-vertical.svg", alt:"Robot Apelatrón") %>
     </div>
   </div>
   <div class="mainText">
@@ -56,8 +56,11 @@
   </div>
 </div>
 <script>
-$('#start').click((e) => {
-  e.preventDefault();
-  $('.overlay').removeClass('hidden');
-});
+  $('#start').click((e) => {
+    e.preventDefault();
+    $('.overlay').removeClass('hidden');
+  });
+  $('.fa-xmark').click(() => {
+    $('.overlay').addClass('hidden');
+  });
 </script>
