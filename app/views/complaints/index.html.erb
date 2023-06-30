@@ -85,12 +85,12 @@
 </div>
 <% end %>
 <%= render partial: "warning" %>
+<div id="loading" class="hidden"><%= image_tag("loading.svg", alt: "Cargando") %></div>
 <script>
   window.scrollTo({top: 0, behavior: "smooth"});
   //
   $('#submit-complaint').click((e) => {
-    $(e.target).attr('disabled','disabled');
-    console.log(e.target);
+    $('#loading').removeClass('hidden');
   });
   $('.btn-back').click((e) => {
     e.preventDefault();

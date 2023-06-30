@@ -3,7 +3,6 @@
     jQuery('#steps').append('<%= escape_javascript(render partial: "static_pages/other_actions") %>');
   }
 <% else %>
-  console.log("STEP STEP", <%= @step %>);
   $('.btn-back')[0].href='<%= "/paso/#{(@step - 1)}/#{@platform.id}/#{@reason.id}/#{@standard.id}?back=1#{ @token_param }" %>';
   if (jQuery('#step-'+<%= @step %>).length == 0 ) {
     <% if @back %>
@@ -18,3 +17,4 @@
 <% else %>
   slideTo(<%= @step %>, <%= (@step - 1) %>);
 <% end %>
+$('#loading').addClass('hidden');
