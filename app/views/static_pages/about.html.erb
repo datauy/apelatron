@@ -13,7 +13,7 @@
         <p>¿Te borraron una publicación de una red social? ¿Usás las plataformas para compartir información y te suspendieron la cuenta? En internet también tenés derecho a expresarte con libertad. Si te eliminaron un contenido o te bloquearon la cuenta injustamente, podés apelar la decisión. Si no sabés cómo hacerlo, seguí los pasos de <b>Apelatrón</b> para aprender cómo presentar la apelación en la plataforma.
         </p>
 
-        <!-- Galería de imágenes <div id="img-gallery"></div> -->
+        <!-- Galería de imágenes <div class="img-gallery"></div> -->
 
         <div id="main-text">
             <h3>Objetivo</h3>
@@ -21,7 +21,7 @@
                 La creciente intervención de unas pocas corporaciones internacionales en el libre flujo de información y comunicación en internet ha sido considerada como una amenaza para la libertad de expresión por Relatores de Libertad de Expresión de todo el mundo.
             </p>
             <p>
-                Frente a este escenario, en el que las grandes plataformas avanzan con la remoción o desindexación de contenidos, el asistente <b>Apelatrón</b> fue creado para asistir a los usuarios y usuarias de redes sociales a defender su derecho a expresarse en línea cuando entienden que ha habido una decisión de moderación injusta o ilegítima.
+                Frente a este escenario en el que las grandes plataformas avanzan con la remoción o desindexación de contenidos, el asistente <b>Apelatrón</b> fue creado para asistir a los usuarios y usuarias de redes sociales a defender su derecho a expresarse en línea cuando entienden que ha habido una decisión de moderación injusta o ilegítima.
             </p>
         </div>
         <div id="prop-list">
@@ -29,6 +29,7 @@
             <ul>
 
             <li><a href="https://apelatron.org">Apelatron.org</a></li>
+            <li><a href="https://www.observacom.org/tusderechoseninternet/">#TusDerechosEnInternet</a></li>
             <li><a href="https://soporte.data.org.uy/es/folder/14">Información de Apelatrón en plataforma de soporte de Data Uruguay</a></li>
             </ul>
         </div>
@@ -36,13 +37,13 @@
             <h3>Contacto</h3>
             <ul>
                 <li>Consultas sobre la herramienta (Data Uruguay): contacto@data.org.uy</li>
-                <li>Consultas sobre libertad de expresión (Observacom): contacto@observacom.org</li>
+                <li>Consultas sobre moderación y libertad de expresión (OBSERVACOM): apelatron@observacom.org</li>
                 <li><a href="http://soporte.data.org.uy/es/customer/create-ticket/">Formulario de contacto</a> (mesa de ayuda)
             </ul>
-            <div id="networkImg">
-                <a href="https://twitter.com/Observacom" id="mediaImg"><%= image_tag("twitter-sky.png", alt:"Twitter Observacom") %></a>
-                <a href="https://www.instagram.com/observacomlac/" id="mediaImg"><%= image_tag("face-sky.png", alt:"Facebook Observacom") %></a>
-                <a href="https://www.facebook.com/observacom/?locale=es_LA" id="mediaImg"><%= image_tag("insta-sky.png", alt:"Instagram Observacom") %></a>
+            <div class="networkImg">
+                <a href="https://twitter.com/OBSERVACOM" id="mediaImg"><%= image_tag("twitter-sky.png", alt:"Twitter OBSERVACOM") %></a>
+                <a href="https://www.instagram.com/observacomlac/" id="mediaImg"><%= image_tag("face-sky.png", alt:"Facebook OBSERVACOM") %></a>
+                <a href="https://www.facebook.com/observacom/?locale=es_LA" id="mediaImg"><%= image_tag("insta-sky.png", alt:"Instagram OBSERVACOM") %></a>
             </div>
         </div>
         <div id="prop-list">
@@ -67,15 +68,15 @@
                 Noticias, novedades de proyectos, coberturas de eventos y más, desde nuestros canales sociales.
             </p>
 
-            <h4>Observacom</h4>
-            <div id="networkImg">
-                <a href="https://twitter.com/Observacom" id="mediaImg"><%= image_tag("twitter-sky.png", alt:"Twitter Observacom") %></a>
-                <a href="https://www.instagram.com/observacomlac/" id="mediaImg"><%= image_tag("face-sky.png", alt:"Facebook Observacom") %></a>
-                <a href="https://www.facebook.com/observacom/?locale=es_LA" id="mediaImg"><%= image_tag("insta-sky.png", alt:"Instagram Observacom") %></a>
+            <h4>OBSERVACOM</h4>
+            <div class="networkImg">
+                <a href="https://twitter.com/OBSERVACOM" id="mediaImg"><%= image_tag("twitter-sky.png", alt:"Twitter OBSERVACOM") %></a>
+                <a href="https://www.instagram.com/observacomlac/" id="mediaImg"><%= image_tag("face-sky.png", alt:"Facebook OBSERVACOM") %></a>
+                <a href="https://www.facebook.com/observacom/?locale=es_LA" id="mediaImg"><%= image_tag("insta-sky.png", alt:"Instagram OBSERVACOM") %></a>
             </div>
 
             <h4>Data Uruguay</h4>
-            <div id="networkImg">
+            <div class="networkImg">
                 <a href="https://mastodon.uy/@datauy" id="mediaImg"><%= image_tag("masto-sky.png", alt:"Mastodon Data") %></a>
                 <a href="https://twitter.com/datauy" id="mediaImg"><%= image_tag("twitter-sky.png", alt:"Twitter Data") %></a>
                 <a href="https://instagram.com/datauy" id="mediaImg"><%= image_tag("insta-sky.png", alt:"Instagram Data") %></a>
@@ -100,13 +101,13 @@
                 Este proyecto fue realizado gracias al apoyo del <a href="https://programafrida.net">programa Frida</a> de <a href="https://www.lacnic.net/">LACNIC</a>, siendo seleccionado en 2022 para recibir una subvención.
             </p>
 
-            <div id="img-gallery">
+            <div class="img-gallery">
                 <%= link_to image_tag("frida_lacnic.png", alt:"Logo Frida"), "https://programafrida.net" %>
             </div>
 
             <h3>Antecedentes</h3>
             <p>
-            Este proyecto se apoya en la experiencia previa de Observacom en libertad de expresión en Internet, incluyendo brindar información sobre apelaciones ante plataformas, a través de proyectos como <a href="https://www.observacom.org/tusderechoseninternet/">#TusDerechosEnInternet</a>.
+            Este proyecto se apoya en la experiencia previa de OBSERVACOM en libertad de expresión en Internet, incluyendo brindar información sobre apelaciones ante plataformas, a través de proyectos como <a href="https://www.observacom.org/tusderechoseninternet/">#TusDerechosEnInternet</a>.
             </p>
         </div>
 
@@ -208,7 +209,7 @@
         </div>
 
         <h2 id="page-subtitle">
-            Sobre Observacom
+            Sobre OBSERVACOM
         </h2>
 
         <div id="prop-list">
@@ -228,10 +229,10 @@
             <p>
             <a href="https://www.observacom.org/">https://www.observacom.org/</a>
             </p>
-            <div id="networkImg">
-                <a href="https://twitter.com/Observacom" id="mediaImg"><%= image_tag("twitter-sky.png", alt:"Twitter Observacom") %></a>
-                <a href="https://www.instagram.com/observacomlac/" id="mediaImg"><%= image_tag("face-sky.png", alt:"Facebook Observacom") %></a>
-                <a href="https://www.facebook.com/observacom/?locale=es_LA" id="mediaImg"><%= image_tag("insta-sky.png", alt:"Instagram Observacom") %></a>
+            <div class="networkImg">
+                <a href="https://twitter.com/OBSERVACOM" id="mediaImg"><%= image_tag("twitter-sky.png", alt:"Twitter OBSERVACOM") %></a>
+                <a href="https://www.instagram.com/observacomlac/" id="mediaImg"><%= image_tag("face-sky.png", alt:"Facebook OBSERVACOM") %></a>
+                <a href="https://www.facebook.com/observacom/?locale=es_LA" id="mediaImg"><%= image_tag("insta-sky.png", alt:"Instagram OBSERVACOM") %></a>
             </div>
         </div>
 
@@ -260,7 +261,7 @@
             <a href="http://data.org.uy">http://data.org.uy</a>
             </p>
 
-            <div id="networkImg">
+            <div class="networkImg">
                 <a href="https://mastodon.uy/@datauy" id="mediaImg"><%= image_tag("masto-sky.png", alt:"Mastodon Data") %></a>
                 <a href="https://twitter.com/datauy" id="mediaImg"><%= image_tag("twitter-sky.png", alt:"Twitter Data") %></a>
                 <a href="https://instagram.com/datauy" id="mediaImg"><%= image_tag("insta-sky.png", alt:"Instagram Data") %></a>

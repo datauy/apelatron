@@ -350,6 +350,12 @@ p {
     }
   }
 }
+.img-gallery,
+.networkImg,
+.upload-button {
+  margin: 15px 0;
+}
+
 @keyframes container {
   from {
     flex: 0 0 200%;

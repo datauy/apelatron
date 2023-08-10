@@ -22,7 +22,6 @@ class ComplaintsController < ApplicationController
   def index
     respond_to do |format|
       format.js {
-        logger.info "SETP 2 JS!!!"
         @step = 2
         if ( params[:platform].present? )
           @reason_options = ''
@@ -75,7 +74,7 @@ class ComplaintsController < ApplicationController
         end
         logger.info "\n Processing first steps #{ @step }"
         @platform_options = Platform.all.order(:name).map { |p| [p.name, p.id] }
-        @country_options = Country.all.order(:name).map { |p| [p.name, p.id ] }
+        @country_options = Country.all.order(:weight).map { |p| [p.name, p.id ] }
       }
     end
   end

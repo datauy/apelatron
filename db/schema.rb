@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_30_041443) do
+ActiveRecord::Schema.define(version: 2023_08_10_184530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2023_05_30_041443) do
     t.integer "satisfaction"
     t.integer "useful"
     t.boolean "success"
+    t.boolean "follow_up_sent"
     t.index ["country_id"], name: "index_complaints_on_country_id"
     t.index ["platform_id"], name: "index_complaints_on_platform_id"
     t.index ["reason_id"], name: "index_complaints_on_reason_id"
@@ -58,6 +59,7 @@ ActiveRecord::Schema.define(version: 2023_05_30_041443) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "weight"
   end
 
   create_table "platforms", force: :cascade do |t|
