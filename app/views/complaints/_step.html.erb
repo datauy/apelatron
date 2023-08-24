@@ -18,7 +18,7 @@
     <input id='<%= copy_id %>' type="hidden" value="<%= step.template.html_safe %>">
   </div>
   <div class="upload-button">
-    <button onclick="copy2clip('<%= copy_id %>')"><%= image_tag("copy.png", alt: "Ícono de copia") %>Copiar a portapapeles</button>
+    <a onclick="copy2clip('<%= copy_id %>')"><%= image_tag("copy.png", alt: "Ícono de copia") %>Copiar a portapapeles</a>
     <span id='<%= "message-#{copy_id}" %>' class="success suplement hidden">Plantilla copiada!</span>
   </div>
 <% end %>

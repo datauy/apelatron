@@ -30,7 +30,7 @@ ActiveAdmin.register Step do
       f.input :order
       f.input :title
       f.input :description, as: :ckeditor
-      f.input :template, as: :ckeditor
+      f.input :template
     end
     f.actions
   end
